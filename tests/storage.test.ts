@@ -18,6 +18,7 @@ import {
 import {
   clearReadingSession,
   createReadingSession,
+  drawCountForSession,
   parseReadingSession,
   readReadingSession,
   writeReadingSession,
@@ -288,6 +289,21 @@ test("draw session restores the exact deck, selected positions and orientations"
     parseReadingSession(sessionStorage.getItem(SESSION)),
     completed,
   );
+});
+test("a fresh reading defaults to one card and restored spreads keep their card count", () => {
+  assert.equal(drawCountForSession(null), 1);
+  const quick = createReadingSession(input.question, {
+    spread: "quick",
+    reason: "Một góc nhìn",
+    source: "local",
+  });
+  const cycle = createReadingSession(input.question, {
+    spread: "cycle",
+    reason: "Hiểu, thử và kiểm tra",
+    source: "local",
+  });
+  assert.equal(drawCountForSession(quick), 1);
+  assert.equal(drawCountForSession(cycle), 3);
 });
 test("session parser rejects corrupt or inconsistent card/result state", () => {
   const session = createReadingSession(input.question, {

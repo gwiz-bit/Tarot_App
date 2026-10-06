@@ -357,7 +357,9 @@ export class AiRouter {
         if (failure instanceof ValidationFailure) this.health.cancel(lease);
         else this.health.failure(lease, failure);
         console.warn(
-          "[tarot-ai] provider unavailable",
+          failure instanceof ValidationFailure
+            ? "[tarot-ai] provider answer rejected"
+            : "[tarot-ai] provider unavailable",
           JSON.stringify({
             task: operation.task,
             provider,

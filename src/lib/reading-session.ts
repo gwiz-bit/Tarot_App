@@ -7,6 +7,7 @@ import {
   recordSchema,
   spreads,
   type Analysis,
+  type DrawCount,
   type ReadingStyle,
 } from "./domain";
 import { readHistory, shuffleDeck } from "./storage";
@@ -79,6 +80,12 @@ const sessionSchema = questionSchema
     };
   });
 export type ReadingSession = z.infer<typeof sessionSchema>;
+export function drawCountForSession(
+  session: Pick<ReadingSession, "analysis"> | null,
+): DrawCount {
+  if (!session) return 1;
+  return session.analysis.spread === "quick" ? 1 : 3;
+}
 let memory: ReadingSession | null = null;
 let memoryOnly = false;
 function latestSavedProgress(session: ReadingSession | null) {

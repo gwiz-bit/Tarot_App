@@ -281,7 +281,8 @@ test("a curated social-scope question is accepted without a needless provider re
   globalThis.fetch = async () => {
     calls++;
     const data = readingData(socialInput);
-    data.cardReadings[0].connection = localReading(socialInput).connections![0].text;
+    data.cardReadings[0].connection =
+      localReading(socialInput).connections![0].text;
     data.checks = [
       "Hoạt động và quan hệ xã hội nào đang hình thành thói quen của bạn?",
       "Nhu cầu tự nhiên và điều kiện xã hội nào cần được xét cùng nhau?",
@@ -352,6 +353,48 @@ test("visible guidance repairs numbers the user never supplied", async () => {
     result.actions.map((action) => action.detail).join(" "),
     /5 ngày/u,
   );
+});
+
+test("visible guidance accepts user-supplied decimal formatting and concrete Vietnamese verbs", async () => {
+  const decimalInput: ReadingInput = {
+    ...input,
+    question:
+      "Điểm hiện tại của mình là 2.5 và mình muốn kiểm tra lại cách học.",
+  };
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    const data = readingData(decimalInput);
+    data.insight =
+      "Điểm 2,5 cho thấy kết quả hiện tại, nhưng chưa đủ để xác định phần nào trong cách học đang gây vướng. Có thể kiểm tra cách bạn tự giải và dùng phản hồi trước khi đổi phương pháp.";
+    data.actions = [
+      {
+        title: "Viết lại cách làm",
+        description:
+          "Viết các bước bạn đã dùng và đánh dấu chỗ bắt đầu lúng túng.",
+      },
+      {
+        title: "Thực hành không nhìn mẫu",
+        description:
+          "Thực hành một dạng bài đang vướng rồi đối chiếu cách suy luận.",
+      },
+      {
+        title: "Áp dụng phản hồi",
+        description:
+          "Áp dụng góp ý vào lần làm tiếp theo và quan sát điểm khác biệt.",
+      },
+    ];
+    return envelope("groq", data);
+  };
+
+  const result = await generateReading({
+    ...decimalInput,
+    readingSessionId: crypto.randomUUID(),
+  });
+
+  assert.ok("source" in result && result.source === "ai");
+  assert.equal(calls, 1);
+  assert.match(result.reflection, /2,5/u);
 });
 
 test("demo overrides primary mode, production hides debug, and schema-invalid analysis repairs before failover", async () => {

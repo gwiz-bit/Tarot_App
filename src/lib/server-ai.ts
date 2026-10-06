@@ -295,14 +295,18 @@ function validateGrounding(
   if (
     result.actions.some(
       (action) =>
-        !/\b(?:ghi|liet ke|so sanh|doi chieu|kiem tra|danh gia|quan sat|thu|hoi|chon|xac dinh|mo ta|theo doi|trao doi|thu thap|phan loai|dat ten|lam ro)\b/.test(
+        !/\b(?:ghi|viet|liet ke|so sanh|doi chieu|kiem tra|danh gia|quan sat|thu|thuc hanh|thuc hien|ap dung|hoi|chon|xac dinh|mo ta|theo doi|trao doi|thu thap|phan loai|dat ten|lam ro|tach|neu|tim|doc|giai|dung|lap)\b/.test(
           evidenceText(action.description),
         ),
     )
   )
     fail("actions need a concrete, observable step");
+  const normalizeNumber = (value: string) => value.replace(",", ".");
   const statedNumbers = new Set(
-    `${input.question} ${input.followUp ?? ""}`.match(/\d+(?:[.,]\d+)?/g) ?? [],
+    (
+      `${input.question} ${input.followUp ?? ""}`.match(/\d+(?:[.,]\d+)?/g) ??
+      []
+    ).map(normalizeNumber),
   );
   const inventedNumber = [
     result.message,
@@ -311,7 +315,7 @@ function validateGrounding(
     ...result.actions.map((action) => action.description),
   ]
     .flatMap((text) => text.match(/\d+(?:[.,]\d+)?/g) ?? [])
-    .some((number) => !statedNumbers.has(number));
+    .some((number) => !statedNumbers.has(normalizeNumber(number)));
   if (inventedNumber)
     fail("visible text must not invent numbers, deadlines or measurements");
   for (const card of deck) {
@@ -341,7 +345,9 @@ function validateGrounding(
       synthesis.includes(evidenceText(getCard(draw.id)!.name)),
     )
   )
-    fail("message and insight must not repeat card names or orientation tokens");
+    fail(
+      "message and insight must not repeat card names or orientation tokens",
+    );
   const relationship = {
     choice: /ca hai|hai huong|cung tieu chi|so sanh|doi chieu hai|doi chieu a/,
     conflict:

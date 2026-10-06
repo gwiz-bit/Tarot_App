@@ -28,6 +28,7 @@ import { readHistory } from "@/lib/storage";
 import {
   clearReadingSession,
   createReadingSession,
+  drawCountForSession,
   readReadingSession,
   writeReadingSession,
   type ReadingSession,
@@ -75,8 +76,8 @@ function ReadingFlowCore({ initial }: { initial: ReadingSession | null }) {
     );
   const [freshResult, setFreshResult] = useState(false);
   const [style, setStyle] = useState<ReadingStyle>(initial?.style ?? "simple");
-  const [drawCount, setDrawCount] = useState<DrawCount>(
-    initial?.analysis.spread === "quick" ? 1 : 3,
+  const [drawCount, setDrawCount] = useState<DrawCount>(() =>
+    drawCountForSession(initial),
   );
   const [readingSessionId, setReadingSessionId] = useState(
     initial?.readingSessionId ?? "",

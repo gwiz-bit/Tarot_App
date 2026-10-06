@@ -5,6 +5,7 @@ import { cards as deck, getCard } from "@/data/cards";
 import { selectedCardContext } from "./card-context";
 import {
   analysisSchema,
+  assistantMetaQuestion,
   classifyQuestion,
   interpretationSchema,
   localReading,
@@ -417,8 +418,9 @@ export async function generateReading(
     return {
       blocked: true as const,
       category: "scope",
-      message:
-        "Phần hỏi tiếp chỉ hỗ trợ vấn đề ban đầu và những lá đã rút. Hãy hỏi về một góc nhìn, lựa chọn hoặc bước hành động trong lần trải này.",
+      message: assistantMetaQuestion(input.followUp)
+        ? "Mình là trợ lý phân tích của Tarot Biện Chứng. Ô này dùng để hỏi tiếp về vấn đề ban đầu và những lá đã rút; hãy hỏi về một góc nhìn, lựa chọn hoặc bước hành động trong lần trải này."
+        : "Phần hỏi tiếp chỉ hỗ trợ vấn đề ban đầu và những lá đã rút. Hãy hỏi về một góc nhìn, lựa chọn hoặc bước hành động trong lần trải này.",
     };
   const data = providerReadingInput(input);
   return getAiRouter().run<typeof providerReadingSchema, ReadingResult>({

@@ -556,6 +556,7 @@ function scopeCheck(concept: string) {
 }
 export function outOfScope(followUp: string, question = "") {
   const text = normalize(followUp);
+  if (assistantMetaQuestion(followUp)) return true;
   if (/ignore.*instruction|bo qua.*huong dan|thay doi.*quy tac/.test(text))
     return true;
   if (/viet code|write code|dich sang|cong thuc nau/.test(text)) return true;
@@ -569,6 +570,16 @@ export function outOfScope(followUp: string, question = "") {
   ].some(
     ([topic, context]) =>
       topic.test(text) && !context.test(normalize(question)),
+  );
+}
+
+export function assistantMetaQuestion(value: string) {
+  const text = normalize(value)
+    .replace(/[^a-z0-9 ]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return /^(?:ban la ai|ban la gi|ai dang tra loi|day la ai|ten ban la gi|ban dung mo hinh (?:ai )?nao|day co phai ai khong)$/.test(
+    text,
   );
 }
 export function localReading(input: ReadingInput): ReadingResult {

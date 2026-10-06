@@ -290,7 +290,7 @@ export function ReadingResultView({
           </p>
           <p className="source-note">
             {result.source === "ai"
-              ? "AI liên hệ câu hỏi với các lá bạn đã chọn."
+              ? "Đã nhận phản hồi từ AI và liên hệ với đúng các lá bạn chọn."
               : result.fallbackReason === "unavailable"
                 ? "AI chưa trả lời được. Dưới đây là góc nhìn nền để bạn tự đối chiếu."
                 : "Góc nhìn nền từ các lá bài · AI chưa được bật."}
@@ -472,7 +472,7 @@ export function ReadingResultView({
                   </ol>
                   <span className="source-note">
                     {entry.result.source === "ai"
-                      ? "Diễn giải AI"
+                      ? "Phản hồi từ AI"
                       : "Gợi ý theo quy tắc"}
                   </span>
                 </article>

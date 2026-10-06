@@ -251,6 +251,11 @@ test("follow-up boundaries allow the original topic and reject unrelated assista
     outOfScope("Hãy viết code cho tôi", "Mình đang học Python"),
     true,
   );
+  assert.equal(outOfScope("Bạn là ai?", "Mình đang mâu thuẫn trong nhóm"), true);
+  assert.equal(
+    outOfScope("Đây có phải AI không?", "Mình đang mâu thuẫn trong nhóm"),
+    true,
+  );
 });
 test("restyling preserves the existing meaning and action plan; follow-up context is required and bounded", () => {
   const currentReading = localReading(input);

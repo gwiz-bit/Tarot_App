@@ -293,6 +293,14 @@ test("Gemini structured response, orientation, constrained spread, malformed out
     });
     assert.ok("category" in scoped && scoped.category === "scope");
     assert.equal(calls, 0);
+    const identity = await generateReading({
+      ...input,
+      followUp: "Bạn là ai?",
+      currentReading,
+    });
+    assert.ok("category" in identity && identity.category === "scope");
+    assert.match(identity.message, /trợ lý phân tích của Tarot Biện Chứng/);
+    assert.equal(calls, 0);
   } finally {
     globalThis.fetch = original;
     if (oldEnabled === undefined) delete process.env.AI_ENABLED;

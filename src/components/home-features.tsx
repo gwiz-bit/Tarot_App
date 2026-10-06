@@ -11,7 +11,7 @@ import {
   type ReadingStyle,
 } from "@/lib/domain";
 import { analyze } from "@/lib/client-api";
-import { getDailyCard, outcomes, readHistory, saveRecord } from "@/lib/storage";
+import { getDailyCard, getRandomCard, outcomes, readHistory, saveRecord } from "@/lib/storage";
 import {
   createReadingSession,
   writeReadingSession,
@@ -215,17 +215,33 @@ export function DailyCard() {
                 ? "Lá xuôi · Góc nhìn có thể phát huy"
                 : "Lá ngược · Điểm mù cần kiểm tra"}
             </span>
-            <button className="text-link" onClick={() => setShow(true)}>
-              Xem kiến thức & câu hỏi suy ngẫm ↗
-            </button>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "16px" }}>
+              <button className="button button-outline" onClick={() => setDraw(getRandomCard())}>
+                ✦ Rút lá ngẫu nhiên khác
+              </button>
+              <button className="button button-outline" onClick={() => setShow(true)}>
+                Xem kiến thức lá bài ↗
+              </button>
+              <Link className="button button-primary" href="/daily">
+                Trang rút lá đầy đủ ↗
+              </Link>
+            </div>
           </>
         ) : (
-          <button className="button" onClick={() => setDraw(getDailyCard())}>
-            Mở lá hôm nay ↗
-          </button>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "16px" }}>
+            <button className="button button-primary" onClick={() => setDraw(getDailyCard())}>
+              ✧ Mở lá hôm nay
+            </button>
+            <button className="button button-outline" onClick={() => setDraw(getRandomCard())}>
+              ✦ Rút ngẫu nhiên một lá
+            </button>
+            <Link className="button button-outline" href="/daily">
+              Chiêm nghiệm đầy đủ ↗
+            </Link>
+          </div>
         )}
         <small className="fine-print">
-          Một lá giữ nguyên trong ngày theo giờ của thiết bị.
+          Mỗi lá bài mang một lăng kính thực hành cho công việc và đời sống.
         </small>
       </div>
       <Knowledge card={show ? card : null} onClose={() => setShow(false)} />

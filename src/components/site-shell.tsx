@@ -57,6 +57,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   }, []);
   const links = [
     ["/", "Trang chủ"],
+    ["/daily", "Lá hôm nay"],
     ["/reading", "Trải bài"],
     ["/library", "Thư viện"],
     ["/history", "Lịch sử"],

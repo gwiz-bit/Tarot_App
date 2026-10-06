@@ -16,6 +16,8 @@ export function ContextualInsight({
   compact = false,
 }: {
   result: ReadingResult;
+  cards?: unknown;
+  spread?: unknown;
   compact?: boolean;
 }) {
   return (
@@ -23,6 +25,21 @@ export function ContextualInsight({
       <div className="reading-prose">
         <ReadingParagraphs text={result.reflection} />
       </div>
+    </div>
+  );
+}
+
+export function ReadingCheckCards({ checks }: { checks: string[] }) {
+  return (
+    <div className="reading-check-cards">
+      {checks.map((check, i) => (
+        <div className="check-card" key={i}>
+          <span className="check-card-index" aria-hidden="true">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <p>{check}</p>
+        </div>
+      ))}
     </div>
   );
 }

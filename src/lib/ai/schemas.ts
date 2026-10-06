@@ -69,10 +69,12 @@ export const providerReadingSchema = z
     message: shortText(850, 70).describe(
       "Trả lời trực tiếp câu hỏi bằng 2 câu ngắn, khoảng 25–45 từ (tối đa 70).",
     ),
-    insight: shortText(2600, 180).describe(
-      "Liên hệ các lá trong 2 đoạn ngắn cách nhau bằng dòng trống, khoảng 80–120 từ (tối đa 180). Giải thích quan hệ giữa các vị trí, không ghép lại từng định nghĩa.",
+    insight: shortText(4200, 300).describe(
+      "Phân tích có cấu trúc trong 3 đoạn ngắn cách nhau bằng dòng trống, khoảng 150–250 từ (tối đa 300). Đoạn 1: hiện trạng và điểm mù từ góc nhìn lá đầu. Đoạn 2: yếu tố khách quan hoặc mâu thuẫn liên quan lá tiếp. Đoạn 3: hướng chuyển hóa và bước kiểm chứng. Dùng ngôn ngữ đời thường, đưa ví dụ cụ thể từ câu hỏi.",
     ),
-    checks: z.array(shortText(300, 45)).min(2).max(3),
+    checks: z.array(shortText(500, 60)).min(2).max(4).describe(
+      "2–3 tiêu chí tự kiểm tra thực tế (ưu tiên 3). Mỗi tiêu chí gồm vấn đề cần rà soát VÀ dấu hiệu nhận biết cụ thể để người đọc tự đánh giá, dùng từ ngữ đời thường, không hỏi ngược.",
+    ),
     actions: z.array(providerActionSchema).length(3),
     followUpSuggestion: shortText(300, 35).describe(
       "Một câu hỏi ngắn để gợi mở câu hỏi tiếp theo.",

@@ -361,7 +361,7 @@ function validateGrounding(
     fail("insight lacks the relationship between spread positions");
   if (
     result.message.split(/\s+/u).length > 70 ||
-    result.insight.split(/\s+/u).length > 180 ||
+    result.insight.split(/\s+/u).length > 300 ||
     result.cardReadings.some(
       (entry) => entry.connection.split(/\s+/u).length > 65,
     ) ||

@@ -44,6 +44,15 @@ const cardImageMap: Record<string, string> = {
   "the-form": "/images/cards/the-form.jpg",
   "the-essence": "/images/cards/the-essence.jpg",
   "the-possibility": "/images/cards/the-possibility.jpg",
+  "the-practice": "/images/cards/the-practice.jpg",
+  "the-truth": "/images/cards/the-truth.jpg",
+  "the-ascent": "/images/cards/the-ascent.jpg",
+  "the-forces": "/images/cards/the-forces.jpg",
+  "the-structure": "/images/cards/the-structure.jpg",
+  "the-society": "/images/cards/the-society.jpg",
+  "the-human": "/images/cards/the-human.jpg",
+  "the-masses": "/images/cards/the-masses.jpg",
+  "the-turning": "/images/cards/the-turning.jpg",
 };
 
 function DotField({

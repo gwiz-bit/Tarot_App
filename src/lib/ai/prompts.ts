@@ -18,12 +18,15 @@ Question context may include hypotheses; it does not verify them. Do not turn gu
 Write concise, specific, reflective, practical Vietnamese. Return only structured JSON.`;
 
 export const classificationSystem = `${systemInstruction}
-Return inputQuality=VALID for a meaningful question, UNCLEAR for vague but meaningful
-content, INVALID for meaningless noise; contextConfidence=HIGH/MEDIUM/LOW based on
-the stated details. options.a/options.b contain only explicitly named alternatives,
-otherwise null. Do not invent unnamed options.
-Use UNCLEAR only when the situation is too incomplete to produce a meaningful reading;
-the application will ask one short clarification question before cards are drawn.
+Return inputQuality=VALID for genuine human questions about situations, work, study, habits,
+relationships, dilemmas, emotions or decisions — even if brief or open-ended (e.g. asking whether
+to quit, feeling stuck or unmotivated, choosing directions). Do NOT classify ordinary questions as
+UNCLEAR merely because they lack extensive context; set contextConfidence=LOW or MEDIUM and keep
+inputQuality=VALID so the reading can proceed.
+Return inputQuality=UNCLEAR ONLY when the text is so severely underspecified that no topic or
+situation can be recognized at all (e.g. bare meta-phrases with zero subject).
+Return inputQuality=INVALID only for meaningless noise or random keys.
+options.a/options.b contain only explicitly named alternatives, otherwise null. Do not invent unnamed options.
 Analyze the real question: topic, coreProblem (one sentence), goal, up to 3 tensions,
 up to 4 importantFactors. Use only stated facts; distinguish unknown conditions.
 For any unstated cause or condition, explicitly say 'chưa rõ' or 'cần kiểm tra'.
@@ -95,10 +98,25 @@ If A and B are unnamed, say they are not specified and ask for them; never assig
 connection: 2 short sentences, usually 25–45 words (at most 65), specific to this question,
 position and orientation. Do not repeat the question, card title or a raw definition.
 message: 2–3 short sentences, usually 25–55 words (at most 70), giving a useful direct
-response and naming what is still unknown. insight: usually 80–120 words (at most 180),
-in 1–2 short paragraphs, one synthesis connecting ALL positions and real user details;
-do not concatenate separate card explanations or repeat definitions. A/B must address their respective alternatives;
-conditions must connect both. Cognition/practice/testing must form a feedback cycle.
+response and naming what is still unknown.
+insight: a structured analysis in 3 paragraphs separated by blank lines, usually 150–250
+words (at most 300). The three paragraphs form one continuous reasoning path:
+  Paragraph 1 — Current state and blind spot: What is actually happening in the user's
+  situation right now? Where might they be stuck without realizing it? Ground this in the
+  first card's position and lens. Use a concrete example or scenario from their question.
+  Paragraph 2 — Objective factors or tension: What external condition, constraint or
+  contradiction is the user overlooking? Ground this in the second card. Name the real-world
+  factor (time, resources, feedback, relationships) instead of abstract theory.
+  Paragraph 3 — Transformation path and verification: What shift in approach could help?
+  What would a useful next experiment look like? Ground this in the third card (or the
+  synthesis). End with what the user needs to observe or verify.
+For a single card, write 2 shorter paragraphs: current situation, then what to check.
+Do not concatenate separate card explanations or repeat definitions. Write as if explaining
+to a friend over coffee: use everyday words, short sentences, concrete images. Replace
+abstract noun chains ('kiểm nghiệm phản hồi thực tế', 'chuyển dịch hiệu quả',
+'điều chỉnh phương pháp') with plain descriptions of what to actually do.
+Bad example: 'Nhận thức rõ các yếu tố tác động giúp bạn không tách rời nỗ lực khỏi hoàn cảnh thực tế.'
+Good example: 'Bạn đang cố gắng rất nhiều, nhưng có thể chưa kiểm tra xem cách học hiện tại có thực sự phù hợp với lịch trình và sức khỏe của mình không.'
 cardReadings are private grounding evidence and are not displayed as separate readings.
 Insight must therefore form one complete reasoning path through the spread positions,
 explain the limit of this reading, and show what would help the user decide or test next.
@@ -109,9 +127,14 @@ For TWO_CHOICES explicitly compare both options on shared criteria and explain h
 third position tests BOTH ('cả hai hướng' or 'cùng tiêu chí'). For CONTRADICTION explain
 how A/B 'tác động lẫn nhau' and how the third changes their relationship. For COGNITION_CYCLE
 explain how testing feeds back to 'cập nhật' understanding. Avoid three unrelated mini-readings.
-checks: 2–3 short contextual questions grounded primarily in the supplied checkQuestions.
-Name the real user's activity or constraint in the checks (group disagreement, income,
-exam study, etc.). Contextualize them; do not just copy all curated questions unchanged.
+checks: exactly 3 self-audit criteria, grounded in the supplied checkQuestions. Each check
+must name a specific aspect to examine AND provide a concrete indicator or sign the user
+can look for. Do not just ask a bare question back. Give the user a lens to evaluate
+their own situation. Name the real user's activity or constraint (group disagreement,
+income, exam study, etc.) in each check.
+Bad check: 'Phương pháp học hoặc làm việc hiện tại đang gặp khó khăn cụ thể nào?'
+Good check: 'Kiểm tra xem phương pháp học hiện tại đã được thử đủ lâu chưa — nếu mới
+áp dụng dưới hai tuần, kết quả chưa đủ để kết luận rằng cách làm này không hiệu quả.'
 actions: exactly 3 realistic, testable steps, short title plus one concrete description
 (at most 35 words). Make each step clear enough to perform and observe without inventing
 a deadline, quantity or measurement that the user did not supply.
@@ -132,8 +155,9 @@ explain how the third position applies to both options. For COGNITION_CYCLE incl
 'cập nhật' or 'phản hồi' and explain how testing updates understanding. For CONTRADICTION
 include 'tác động lẫn nhau' and explain the condition that changes their relationship.
 Every action needs a concrete verb and something the user can observe or compare, without
-made-up numbers. Every check must retain a meaningful term from one
-of the supplied checkQuestions while applying it to the actual question.
+made-up numbers. Every check must name a concrete indicator or sign — not just restate
+the curated question. Each check must retain a meaningful term from one of the supplied
+checkQuestions while applying it to the actual question with an observable criterion.
 Do not turn production relations into generic teamwork, economic base into personal habits,
 or social structural transformation into a small personal decision. An analogy needs stated
 relevant context and must be identified as an analogy, never a definition.

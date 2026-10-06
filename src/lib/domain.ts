@@ -96,12 +96,12 @@ export const cardConnectionSchema = z.object({
 });
 export const interpretationSchema = z.object({
   message: z.string().trim().min(1).max(850),
-  reflection: z.string().trim().min(1).max(2600),
+  reflection: z.string().trim().min(1).max(4200),
   actions: z.array(actionSchema).length(3),
   reflectionQuestion: z.string().trim().min(1).max(300).optional(),
   // `reflection` remains the stored alias of provider `insight`, so existing
   // sessions and history keep working. Legacy records may lack these fields.
-  checks: z.array(z.string().trim().min(1).max(300)).min(2).max(4).optional(),
+  checks: z.array(z.string().trim().min(1).max(500)).min(2).max(4).optional(),
   followUpSuggestion: z.string().trim().min(1).max(300).optional(),
   // Public, contextual explanations only; private provider evidence stays on
   // the server. Optional so old saved readings can still be opened.

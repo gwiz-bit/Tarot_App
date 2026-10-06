@@ -135,6 +135,9 @@ export function getDailyCard(now = new Date()): DrawnCard {
   }
   return card;
 }
+export function getRandomCard(): DrawnCard {
+  return shuffleDeck()[0];
+}
 export const outcomes = {
   improved: "Có cải thiện",
   unchanged: "Chưa thay đổi",

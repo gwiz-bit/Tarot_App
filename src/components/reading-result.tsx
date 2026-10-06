@@ -26,7 +26,7 @@ import { ShareDialog } from "./share-dialog";
 import { CardReveal } from "./card-reveal";
 import { Knowledge } from "./knowledge";
 import { withReadingTone } from "@/lib/reading-cache";
-import { ContextualInsight, ReadingParagraphs } from "./contextual-insight";
+import { ContextualInsight, ReadingParagraphs, ReadingCheckCards } from "./contextual-insight";
 
 export function ReadingResultView({
   record,
@@ -332,7 +332,7 @@ export function ReadingResultView({
                 {i === 0 ? (
                   <ReadingParagraphs text={block.text} />
                 ) : (
-                  <ContextualInsight result={result} />
+                  <ContextualInsight result={result} cards={record.cards} spread={record.spread} />
                 )}
               </motion.section>
             ))}
@@ -349,11 +349,7 @@ export function ReadingResultView({
                 <span className="section-number">03</span>
                 <span className="section-label">— Điều cần kiểm tra</span>
               </h2>
-              <ul className="reading-checks">
-                {checks.map((check, i) => (
-                  <li key={i}>{check}</li>
-                ))}
-              </ul>
+              <ReadingCheckCards checks={checks} />
             </motion.section>
             <motion.section
               className="reading-block"
@@ -449,13 +445,9 @@ export function ReadingResultView({
                 <article className="follow-up-entry" key={i}>
                   <h3>{entry.question}</h3>
                   <ReadingParagraphs text={entry.result.message} />
-                  <ContextualInsight result={entry.result} compact />
+                  <ContextualInsight result={entry.result} cards={record.cards} spread={record.spread} compact />
                   {entry.result.checks ? (
-                    <ul className="reading-checks">
-                      {entry.result.checks.map((check, j) => (
-                        <li key={j}>{check}</li>
-                      ))}
-                    </ul>
+                    <ReadingCheckCards checks={entry.result.checks} />
                   ) : null}
                   <ol>
                     {entry.result.actions.map((a, j) => (

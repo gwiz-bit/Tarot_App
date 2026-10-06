@@ -270,6 +270,34 @@ test("a follow-up that quotes only the original question is corrected using the 
   assert.equal(calls, 2);
 });
 
+test("a curated social-scope question is accepted without a needless provider retry", async () => {
+  const socialInput: ReadingInput = {
+    question: "Mình có nên thay đổi hướng đi hiện tại?",
+    spread: "quick",
+    style: "simple",
+    cards: [{ id: "the-human", orientation: "upright" }],
+  };
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    const data = readingData(socialInput);
+    data.cardReadings[0].connection = localReading(socialInput).connections![0].text;
+    data.checks = [
+      "Hoạt động và quan hệ xã hội nào đang hình thành thói quen của bạn?",
+      "Nhu cầu tự nhiên và điều kiện xã hội nào cần được xét cùng nhau?",
+    ];
+    return envelope("groq", data);
+  };
+
+  const result = await generateReading({
+    ...socialInput,
+    readingSessionId: crypto.randomUUID(),
+  });
+
+  assert.ok("source" in result && result.source === "ai");
+  assert.equal(calls, 1);
+});
+
 test("demo overrides primary mode, production hides debug, and schema-invalid analysis repairs before failover", async () => {
   process.env.AI_ROUTING_MODE = "gemini_primary";
   let malformed = true;

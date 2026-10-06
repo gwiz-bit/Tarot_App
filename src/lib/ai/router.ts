@@ -322,11 +322,14 @@ export class AiRouter {
               this.health.canContinue(lease)
             ) {
               repairReason = error.message.slice(0, 170);
-              console.warn("[tarot-ai] correcting structured output", {
-                task: operation.task,
-                provider,
-                reason: repairReason,
-              });
+              console.warn(
+                "[tarot-ai] correcting structured output",
+                JSON.stringify({
+                  task: operation.task,
+                  provider,
+                  reason: repairReason,
+                }),
+              );
               continue;
             }
             throw error;
@@ -347,20 +350,23 @@ export class AiRouter {
                   : "network",
               );
         this.health.failure(lease, failure);
-        console.warn("[tarot-ai] provider unavailable", {
-          task: operation.task,
-          provider,
-          category:
-            failure instanceof ValidationFailure
-              ? "validation"
-              : failure.category,
-          ...(failure instanceof ValidationFailure
-            ? { reason: failure.message }
-            : {}),
-          ...(failure instanceof ProviderFailure && failure.status
-            ? { status: failure.status }
-            : {}),
-        });
+        console.warn(
+          "[tarot-ai] provider unavailable",
+          JSON.stringify({
+            task: operation.task,
+            provider,
+            category:
+              failure instanceof ValidationFailure
+                ? "validation"
+                : failure.category,
+            ...(failure instanceof ValidationFailure
+              ? { reason: failure.message }
+              : {}),
+            ...(failure instanceof ProviderFailure && failure.status
+              ? { status: failure.status }
+              : {}),
+          }),
+        );
         failed = true;
       } finally {
         this.inFlight--;

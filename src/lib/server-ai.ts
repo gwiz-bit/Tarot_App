@@ -182,6 +182,8 @@ const genericWords = new Set(
     " ",
   ),
 );
+const socialScopeCheck =
+  /boi canh xa hoi|pham vi|quan he xa hoi|dieu kien xa hoi|hoat dong.{0,35}xa hoi/;
 function meaningfulWords(value: string) {
   return evidenceText(value)
     .split(" ")
@@ -231,7 +233,7 @@ function validateGrounding(
         fail(`scope ${draw.id}: explicitly state missing social context`);
       if (
         !result.checks.some((check) =>
-          /boi canh xa hoi|pham vi/.test(evidenceText(check)),
+          socialScopeCheck.test(evidenceText(check)),
         )
       )
         fail(`checks must verify social scope for ${draw.id}`);

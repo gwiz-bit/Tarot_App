@@ -349,7 +349,13 @@ export class AiRouter {
                   ? "timeout"
                   : "network",
               );
-        this.health.failure(lease, failure);
+        // A schema or grounding rejection is tied to this generated answer,
+        // not to provider availability. Putting the provider in cooldown here
+        // made one poor reading disable AI for later users on the same warm
+        // server instance. Transport, quota and configuration failures still
+        // update the circuit breaker below.
+        if (failure instanceof ValidationFailure) this.health.cancel(lease);
+        else this.health.failure(lease, failure);
         console.warn(
           "[tarot-ai] provider unavailable",
           JSON.stringify({

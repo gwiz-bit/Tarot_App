@@ -215,12 +215,20 @@ test("invalid output gets at most one compact correction per provider, then fail
   assert.equal(result.aiDebug!.provider, "gemini");
   assert.ok(f.calls[1].request.repairReason!.length < 300);
   assert.deepEqual(f.calls[0].request.data, f.calls[1].request.data);
+  assert.equal(
+    result.aiDebug!.health.groq.status,
+    "HEALTHY",
+    "a rejected answer must not poison provider availability",
+  );
   const both = fixture();
   both.handlers.groq = both.handlers.gemini = async () => ({
     wrong: "invalid",
   });
-  assert.equal((await both.run()).source, "local");
+  const local = await both.run();
+  assert.equal(local.source, "local");
   assert.equal(both.calls.length, 4);
+  assert.equal(local.aiDebug!.health.groq.status, "HEALTHY");
+  assert.equal(local.aiDebug!.health.gemini.status, "HEALTHY");
 });
 
 test("cache precedes routing, caches only validated AI and deduplicates identical concurrent operations", async () => {

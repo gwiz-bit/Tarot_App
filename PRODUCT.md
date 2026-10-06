@@ -26,7 +26,7 @@ Không mô phỏng dashboard doanh nghiệp, không dùng hình witch/fantasy, k
 - Lá người dùng chọn và chiều của lá được giữ xuyên suốt lần trải.
 - Dữ liệu học thuật cố định; AI chỉ liên hệ với vấn đề hiện tại.
 - Hiệu ứng giúp hiểu thao tác chọn, lật và chuyển sang kết quả.
-- Kết quả gồm thông điệp, soi vào vấn đề và ba hành động có thể thử.
+- Kết quả gồm bốn phần: điều cần nhìn rõ, một mạch soi vào vấn đề, tối đa ba câu cần kiểm tra và ba hành động có thể thử.
 
 ## Accessibility & Inclusion
 

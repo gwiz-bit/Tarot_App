@@ -327,12 +327,12 @@ test("Conflict reasoning and practical checks differ across team, job transition
     {
       question: "Mình muốn nghỉ việc nhưng vẫn cần thu nhập.",
       required: ["thu nhập", "chuyển tiếp"],
-      action: "hai vị trí",
+      action: "các vị trí",
     },
     {
       question: "Mình muốn chơi game nhưng phải ôn thi.",
       required: ["thời gian", "giới hạn"],
-      action: "25 phút",
+      action: "ôn một dạng bài",
     },
   ];
   const results = scenarios.map(({ question, required, action }) => {
@@ -353,7 +353,11 @@ test("Conflict reasoning and practical checks differ across team, job transition
           .includes(word),
         `${question}: ${word}`,
       );
-    assert.ok(reading.actions.some((item) => item.detail.includes(action)));
+    assert.ok(
+      reading.actions.some((item) =>
+        item.detail.toLowerCase().includes(action.toLowerCase()),
+      ),
+    );
     assert.equal(reading.checks!.length, 2);
     return reading;
   });

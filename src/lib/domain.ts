@@ -361,7 +361,7 @@ function contextFor(question: string) {
         "Số giờ ngồi học chưa đủ; cần đo phần bài hiểu và làm được trước khi tăng thời gian chơi.",
       objective:
         "Kiểm tra ngày thi, phần bài chưa nắm và quỹ thời gian thực có, thay vì chỉ dựa vào hứng thú.",
-      test: "thử 25 phút ôn một dạng bài trước 15 phút chơi game trong ba ngày",
+      test: "ôn một dạng bài đã chọn trước khi chơi game, rồi ghi lại kết quả",
       measure: "số bài tự giải được và việc giữ giới hạn chơi game",
       checks: [
         "Nhu cầu giải trí và yêu cầu ôn thi đang tranh quỹ thời gian như thế nào?",
@@ -397,7 +397,7 @@ function contextFor(question: string) {
         "Xác định kỹ năng, thông tin việc làm và mức chuẩn bị cần tích lũy; thời gian chờ đợi tự nó không tạo điều kiện đổi việc.",
       objective:
         "Kiểm tra yêu cầu sinh hoạt, nguồn hỗ trợ và thông tin vị trí mới trước khi đánh giá khả năng chuyển tiếp.",
-      test: "dành một tuần tìm hiểu hai vị trí khác và đối chiếu yêu cầu với năng lực hiện tại",
+      test: "tìm hiểu các vị trí đang cân nhắc và đối chiếu yêu cầu với năng lực hiện tại",
       measure:
         "dữ kiện mới về điều kiện làm việc và khoảng trống năng lực cần chuẩn bị",
       checks: [
@@ -415,7 +415,7 @@ function contextFor(question: string) {
         "Học nhiều nhưng GPA thấp cần kiểm tra loại lượng tích lũy: thời gian, bài tự giải hay phản hồi; tăng giờ chưa đủ cho thay đổi chất lượng.",
       objective:
         "Xem yêu cầu ngành, kiến thức nền và điều kiện học thực tế; mong muốn chuyển ngành cần dữ kiện, chưa thể coi là giải pháp chắc chắn.",
-      test: "thử một cách ôn tập trong 7 ngày",
+      test: "thử một cách ôn tập trên phần kiến thức đang vướng và ghi lại kết quả",
       measure: "số câu làm đúng và khả năng giải thích lại kiến thức",
       checks: [
         "Nhu cầu đạt điểm và cách học hiện tại đang tác động lẫn nhau ra sao?",
@@ -450,7 +450,7 @@ function contextFor(question: string) {
         "Kiểm tra lượng tích lũy là lượt thử, phản hồi khách hàng hay khả năng phục vụ; xác định điều kiện và tiêu chí trước khi mở rộng dự án.",
       objective:
         "Đối chiếu phản hồi khách hàng, thời gian và khả năng phục vụ thực tế; mong muốn tăng trưởng chưa xác nhận điều kiện đã đủ.",
-      test: "thử một điều chỉnh nhỏ của sản phẩm và ghi ba phản hồi khách hàng trong 7 ngày",
+      test: "thử một điều chỉnh nhỏ của sản phẩm và ghi lại phản hồi khách hàng",
       measure: "phản hồi khách hàng và khả năng thực hiện điều chỉnh",
       checks: [
         "Nhu cầu mở rộng và nguồn lực hiện có của dự án đang tác động lẫn nhau ra sao?",
@@ -467,7 +467,7 @@ function contextFor(question: string) {
         "Phân biệt số giờ làm với kỹ năng và chất lượng được tích lũy; xác định tiêu chí cho một thay đổi cách làm.",
       objective:
         "Đối chiếu thời gian, năng lực và yêu cầu thực tế của từng hướng công việc trước khi kết luận.",
-      test: "thử một thay đổi nhỏ trong quy trình trong 7 ngày",
+      test: "thử một thay đổi nhỏ trong quy trình và ghi lại điều thay đổi",
       measure: "chất lượng công việc, thời gian thực hiện và mức độ phù hợp",
       checks: [
         "Những yêu cầu công việc nào đang tranh cùng nguồn lực?",
@@ -484,7 +484,7 @@ function contextFor(question: string) {
         "Kiểm tra trải nghiệm và kỹ năng đã tích lũy, cùng điều kiện còn thiếu của hướng đang cân nhắc; thời gian chờ tự nó chưa đủ để quyết định.",
       objective:
         "Đối chiếu những trải nghiệm đã có với yêu cầu của hướng đang cân nhắc; tách lý do có dữ kiện khỏi điều còn là giả định.",
-      test: "dành 7 ngày tìm một trải nghiệm nhỏ của hướng đang cân nhắc",
+      test: "tìm một trải nghiệm nhỏ của hướng đang cân nhắc và ghi lại mức phù hợp",
       measure: "mức phù hợp của trải nghiệm với điều bạn muốn thay đổi",
       checks: [
         "Điều gì ở hướng hiện tại không còn phù hợp, dựa trên trải nghiệm nào?",
@@ -500,7 +500,7 @@ function contextFor(question: string) {
       "Xác định điều đang tích lũy, ngưỡng cần đạt và điều kiện còn thiếu trước khi cân nhắc đổi cách làm.",
     objective:
       "Tách dữ kiện đã quan sát khỏi mong muốn; ghi rõ nguồn lực và giới hạn cần xác minh.",
-    test: "thử một bước nhỏ trong 7 ngày",
+    test: "thử một bước nhỏ và ghi lại điều quan sát được",
     measure: "một dấu hiệu cụ thể mà bạn có thể quan sát trước và sau khi thử",
     checks: [
       "Nhu cầu nào của hai mặt đang đối lập trong tình huống này?",
@@ -549,7 +549,7 @@ export function readingChecks(
       `Có hoạt động, quan hệ hoặc thay đổi nào ở phạm vi xã hội thực sự liên quan đến ${context.subject}? Dữ kiện nào còn thiếu?`,
     );
   if (checks.length < 2) checks.push(context.checks[0]);
-  return checks.slice(0, 4);
+  return checks.slice(0, 3);
 }
 function scopeCheck(concept: string) {
   return `Câu hỏi đã có dữ kiện về ${concept} trong bối cảnh xã hội phù hợp chưa?`;
@@ -744,8 +744,8 @@ export function localReading(input: ReadingInput): ReadingResult {
                   : "Làm rõ dữ kiện",
               detail:
                 input.spread === "choice"
-                  ? "Trong 10 phút, viết A và B thành hai lựa chọn cụ thể; ghi một điều bạn muốn cải thiện và lý do có dữ kiện."
-                  : `Trong 10 phút, ghi ba dữ kiện về ${context.subject}; đánh dấu điều còn là giả định.`,
+                  ? "Viết A và B thành hai lựa chọn cụ thể; ghi điều bạn muốn cải thiện và lý do đã có dữ kiện."
+                  : `Ghi các dữ kiện đã biết về ${context.subject}; đánh dấu điều còn là giả định.`,
             },
             {
               title:
@@ -756,10 +756,10 @@ export function localReading(input: ReadingInput): ReadingResult {
                     : "Thử một thay đổi",
               detail:
                 input.spread === "choice"
-                  ? "Chọn 3 tiêu chí: mức phù hợp, thời gian và điều kiện thực hiện. Với mỗi hướng, ghi dữ kiện đã có và điều còn thiếu."
+                  ? "Chọn cùng một nhóm tiêu chí cho cả hai hướng; ghi dữ kiện đã có và điều còn thiếu ở mỗi hướng."
                   : scoped
-                    ? "Trong 10 phút, ghi dữ kiện về bối cảnh xã hội liên quan; đánh dấu điều chưa biết trước khi áp dụng lá này vào hoàn cảnh của bạn."
-                    : `${context.test[0].toUpperCase() + context.test.slice(1)}; ghi kết quả sau mỗi lần.`,
+                    ? "Ghi dữ kiện về bối cảnh xã hội liên quan; đánh dấu điều chưa biết trước khi áp dụng lá này vào hoàn cảnh của bạn."
+                    : `${context.test[0].toUpperCase() + context.test.slice(1)}.`,
             },
             {
               title:
@@ -768,8 +768,8 @@ export function localReading(input: ReadingInput): ReadingResult {
                   : "Hẹn ngày kiểm nghiệm",
               detail:
                 input.spread === "choice"
-                  ? "Trong 7 ngày, tìm một trải nghiệm nhỏ của hướng đang cân nhắc. Đối chiếu kết quả với 3 tiêu chí đã ghi, trước khi quyết định."
-                  : `Sau 7 ngày, đánh giá ${context.measure}; ghi một điều cần điều chỉnh.`,
+                  ? "Tìm một trải nghiệm nhỏ của hướng đang cân nhắc. Đối chiếu kết quả với các tiêu chí đã ghi trước khi quyết định."
+                  : `Sau khi thử, đánh giá ${context.measure}; ghi điều cần điều chỉnh.`,
             },
           ]),
     followUpSuggestion:

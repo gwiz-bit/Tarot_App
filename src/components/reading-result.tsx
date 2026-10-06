@@ -333,8 +333,6 @@ export function ReadingResultView({
                 ) : (
                   <ContextualInsight
                     result={result}
-                    cards={record.cards}
-                    spread={record.spread}
                   />
                 )}
               </motion.section>
@@ -349,7 +347,7 @@ export function ReadingResultView({
               }}
             >
               <h2 className="reading-section-title">
-                <span>03</span> Tự hỏi trước khi quyết định
+                <span>03</span> Điều cần kiểm tra
               </h2>
               <ul className="reading-checks">
                 {checks.map((check, i) => (
@@ -452,8 +450,6 @@ export function ReadingResultView({
                   <ReadingParagraphs text={entry.result.message} />
                   <ContextualInsight
                     result={entry.result}
-                    cards={record.cards}
-                    spread={record.spread}
                     compact
                   />
                   {entry.result.checks ? (

@@ -45,7 +45,11 @@ test("the reported three-card fallback has complete short paragraphs and useful 
   assert.match(result.connections![1].text, /chưa|cần/);
   assert.match(result.connections![2].text, /quan hệ xã hội/);
   assert.equal(result.actions[1].title, "So sánh cùng tiêu chí");
-  assert.match(result.actions[2].detail, /7 ngày.*trải nghiệm/u);
+  assert.match(result.actions[2].detail, /trải nghiệm.*tiêu chí/u);
+  assert.doesNotMatch(
+    result.actions.map((action) => action.detail).join(" "),
+    /\b(?:10 phút|7 ngày)\b/u,
+  );
   assert.match(result.followUpSuggestion!, /Hai hướng/);
 });
 

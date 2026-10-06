@@ -295,12 +295,25 @@ function validateGrounding(
   if (
     result.actions.some(
       (action) =>
-        !/\d|\b(?:ngay|tuan|thang|lan|gio|phut|ghi|liet ke|thong ke|so sanh|kiem tra|danh gia|quan sat|do luong|tieu chi|danh sach)\b/.test(
+        !/\b(?:ghi|liet ke|so sanh|doi chieu|kiem tra|danh gia|quan sat|thu|hoi|chon|xac dinh|mo ta|theo doi|trao doi|thu thap|phan loai|dat ten|lam ro)\b/.test(
           evidenceText(action.description),
         ),
     )
   )
-    fail("actions need an observable step or time frame");
+    fail("actions need a concrete, observable step");
+  const statedNumbers = new Set(
+    `${input.question} ${input.followUp ?? ""}`.match(/\d+(?:[.,]\d+)?/g) ?? [],
+  );
+  const inventedNumber = [
+    result.message,
+    result.insight,
+    ...result.checks,
+    ...result.actions.map((action) => action.description),
+  ]
+    .flatMap((text) => text.match(/\d+(?:[.,]\d+)?/g) ?? [])
+    .some((number) => !statedNumbers.has(number));
+  if (inventedNumber)
+    fail("visible text must not invent numbers, deadlines or measurements");
   for (const card of deck) {
     if (
       !input.cards.some((draw) => draw.id === card.id) &&
@@ -321,6 +334,14 @@ function validateGrounding(
     )
   )
     fail("insight must frame unstated conditions as something to check");
+  const synthesis = evidenceText(`${result.message} ${result.insight}`);
+  if (
+    /\b(?:upright|reversed)\b/.test(synthesis) ||
+    input.cards.some((draw) =>
+      synthesis.includes(evidenceText(getCard(draw.id)!.name)),
+    )
+  )
+    fail("message and insight must not repeat card names or orientation tokens");
   const relationship = {
     choice: /ca hai|hai huong|cung tieu chi|so sanh|doi chieu hai|doi chieu a/,
     conflict:

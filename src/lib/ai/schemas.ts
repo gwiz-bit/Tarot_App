@@ -37,7 +37,7 @@ const providerActionSchema = z
   .object({
     title: shortText(100, 8),
     description: shortText(550, 35).describe(
-      "Một bước cụ thể có thời hạn hoặc tiêu chí kiểm nghiệm, tối đa 35 từ.",
+      "Một bước cụ thể, rõ cách thực hiện và điều có thể quan sát; không tự đặt thời hạn hay con số. Tối đa 35 từ.",
     ),
   })
   .strict();
@@ -72,7 +72,7 @@ export const providerReadingSchema = z
     insight: shortText(2600, 180).describe(
       "Liên hệ các lá trong 2 đoạn ngắn cách nhau bằng dòng trống, khoảng 80–120 từ (tối đa 180). Giải thích quan hệ giữa các vị trí, không ghép lại từng định nghĩa.",
     ),
-    checks: z.array(shortText(300, 45)).min(2).max(4),
+    checks: z.array(shortText(300, 45)).min(2).max(3),
     actions: z.array(providerActionSchema).length(3),
     followUpSuggestion: shortText(300, 35).describe(
       "Một câu hỏi ngắn để gợi mở câu hỏi tiếp theo.",

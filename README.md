@@ -15,7 +15,7 @@ Mở http://127.0.0.1:3000. Dự án dùng Webpack để tương thích cấu h�
 
 - Trang chủ giữ art direction từ file ZIP, có form 500 ký tự, gợi ý câu hỏi, lá mỗi ngày và nhắc kiểm nghiệm lần trước.
 - `/reading`: người dùng chọn trước 1 hoặc 3 lá; lựa chọn này khóa số lá cho cả AI và fallback. Với 3 lá, hệ thống chọn cấu trúc Hai lựa chọn, Mâu thuẫn hoặc Vòng nhận thức theo câu hỏi. Carousel 22 lá úp hỗ trợ kéo ngang, mũi tên và bàn phím; lá bay vào vị trí và flip 3D. Xuôi = góc nhìn phát huy; ngược = điểm mù.
-- Kết quả: thông điệp, soi vào vấn đề, đúng 3 hành động và một câu hỏi suy ngẫm. Phong cách Dễ hiểu / Phản biện / Học thuật được chọn cùng câu hỏi và áp dụng ngay cho lần diễn giải đầu. Tối đa 5 câu hỏi tiếp trong cùng lần trải; lịch sử cũ có 8 câu vẫn đọc được.
+- Kết quả có bốn phần: điều cần nhìn rõ, một mạch soi vào vấn đề, tối đa 3 điều cần kiểm tra và đúng 3 hành động. Phong cách Dễ hiểu / Phản biện / Học thuật được chọn cùng câu hỏi và áp dụng ngay cho lần diễn giải đầu. Tối đa 5 câu hỏi tiếp trong cùng lần trải; lịch sử cũ có 8 câu vẫn đọc được.
 - Lần trải đang mở được giữ trong sessionStorage: bộ bài, vị trí đã rút, chiều lá, kết quả và câu hỏi tiếp. Refresh/quay lại không rút lại lá. Nếu storage bị chặn, luồng vẫn chạy trong bộ nhớ khi chuyển trang; tải lại sẽ mất phiên chưa lưu.
 - `/library`: 22 artwork SVG khác nhau, tìm có/không dấu và lọc 4 nhóm, panel kiến thức có focus trap/Escape.
 - `/history`: localStorage có phiên bản/schema, tối đa 30 lần, chọn hành động và ghi nhận Có cải thiện / Chưa thay đổi / Mình chưa thử. Chỉ lưu khi người dùng chọn lưu hoặc hành động.

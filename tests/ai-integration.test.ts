@@ -298,6 +298,62 @@ test("a curated social-scope question is accepted without a needless provider re
   assert.equal(calls, 1);
 });
 
+test("visible synthesis repairs repeated English card metadata", async () => {
+  let calls = 0;
+  globalThis.fetch = async (_url, init) => {
+    calls++;
+    const body = JSON.parse(String(init?.body));
+    const data = readingData(input);
+    if (calls === 1)
+      data.insight = `The Leap (upright) cần kiểm tra dữ kiện. ${data.insight}`;
+    else
+      assert.match(
+        body.messages[2].content,
+        /must not repeat card names or orientation tokens/,
+      );
+    return envelope("groq", data);
+  };
+
+  const result = await generateReading({
+    ...input,
+    readingSessionId: crypto.randomUUID(),
+  });
+
+  assert.ok("source" in result && result.source === "ai");
+  assert.equal(calls, 2);
+  assert.doesNotMatch(result.reflection, /The Leap|upright/u);
+});
+
+test("visible guidance repairs numbers the user never supplied", async () => {
+  let calls = 0;
+  globalThis.fetch = async (_url, init) => {
+    calls++;
+    const body = JSON.parse(String(init?.body));
+    const data = readingData(input);
+    if (calls === 1)
+      data.actions[0].description =
+        "Thử cách học này trong 5 ngày rồi ghi lại điều quan sát được.";
+    else
+      assert.match(
+        body.messages[2].content,
+        /must not invent numbers, deadlines or measurements/,
+      );
+    return envelope("groq", data);
+  };
+
+  const result = await generateReading({
+    ...input,
+    readingSessionId: crypto.randomUUID(),
+  });
+
+  assert.ok("source" in result && result.source === "ai");
+  assert.equal(calls, 2);
+  assert.doesNotMatch(
+    result.actions.map((action) => action.detail).join(" "),
+    /5 ngày/u,
+  );
+});
+
 test("demo overrides primary mode, production hides debug, and schema-invalid analysis repairs before failover", async () => {
   process.env.AI_ROUTING_MODE = "gemini_primary";
   let malformed = true;

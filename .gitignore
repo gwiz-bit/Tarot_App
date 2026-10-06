@@ -1,0 +1,16 @@
+/node_modules
+/.next
+/out
+/coverage
+*.tsbuildinfo
+next-env.d.ts
+.env*
+!.env.example
+*.log
+/.qa
+/TarotCards/
+/_design_import_*/
+/artifacts/*
+!/artifacts/dataset-audit/
+/artifacts/dataset-audit/*
+!/artifacts/dataset-audit/cards-before.json

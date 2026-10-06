@@ -1,0 +1,596 @@
+[
+  {
+    "number": "0",
+    "name": "The Reality",
+    "checkQuestions": [
+      "Những dữ kiện nào tồn tại độc lập với mong muốn của bạn?",
+      "Nguồn lực và giới hạn khách quan nào cần được xác minh?",
+      "Bạn đang phân biệt điều đã quan sát với giả định như thế nào?"
+    ],
+    "vietnamese": "Vật chất",
+    "group": "Thế giới quan",
+    "glyph": "◉",
+    "symbolType": 0,
+    "keywords": [
+      "khách quan",
+      "điều kiện",
+      "hiện thực"
+    ],
+    "philosophy": "Vật chất tồn tại khách quan, độc lập với ý thức; ý thức là sự phản ánh hiện thực trong những điều kiện lịch sử cụ thể.",
+    "upright": "Hãy bắt đầu từ những điều đang có thật: nguồn lực, giới hạn và điều kiện cụ thể. Nhìn thẳng vào hiện thực giúp bạn chọn một bước có cơ sở.",
+    "reversed": "Có thể bạn đang để mong muốn hoặc nỗi sợ thay thế cho dữ kiện. Kiểm tra điều gì đã được quan sát, điều gì chỉ là giả định.",
+    "example": "Một kế hoạch học tập cần tính đến thời gian, sức khỏe và kiến thức nền thay vì chỉ dựa vào quyết tâm.",
+    "method": "Liệt kê ba dữ kiện khách quan trước khi chọn giải pháp.",
+    "blindspot": "Đồng nhất điều mình muốn với điều đang tồn tại.",
+    "reflection": "Điều gì trong vấn đề này đang tồn tại độc lập với cách bạn diễn giải nó?",
+    "id": "the-reality",
+    "courseTopic": "Chương 2 · Chủ nghĩa duy vật biện chứng"
+  },
+  {
+    "number": "I",
+    "name": "The Mind",
+    "checkQuestions": [
+      "Cách bạn hình dung vấn đề dựa trên dữ kiện nào?",
+      "Mục đích của bạn có thể chuyển thành hoạt động cụ thể nào?",
+      "Điều gì đang là nhận thức có cơ sở, điều gì chỉ là câu chuyện bạn tự kể?"
+    ],
+    "vietnamese": "Ý thức",
+    "group": "Thế giới quan",
+    "glyph": "◌",
+    "symbolType": 1,
+    "keywords": [
+      "phản ánh",
+      "mục đích",
+      "sáng tạo"
+    ],
+    "philosophy": "Ý thức là sự phản ánh năng động, sáng tạo hiện thực khách quan và có khả năng tác động trở lại hiện thực thông qua hoạt động của con người.",
+    "upright": "Cách bạn đặt tên và hình dung vấn đề đang mở ra một khả năng hành động. Ý thức rõ ràng cần được chuyển thành việc làm.",
+    "reversed": "Một câu chuyện trong đầu có thể đang trở thành chiếc lồng. Hãy phân biệt điều bạn biết với điều bạn đang tự kể.",
+    "example": "Đổi câu ‘mình kém’ thành một câu hỏi về kỹ năng cụ thể có thể rèn luyện.",
+    "method": "Viết lại vấn đề bằng một mô tả có thể kiểm chứng.",
+    "blindspot": "Tin rằng suy nghĩ thay thế được hành động.",
+    "reflection": "Cách bạn gọi tên vấn đề đang làm nó rộng ra hay nhỏ lại?",
+    "id": "the-mind",
+    "courseTopic": "Chương 2 · Chủ nghĩa duy vật biện chứng"
+  },
+  {
+    "number": "II",
+    "name": "The Connection",
+    "checkQuestions": [
+      "Những yếu tố nào đang tác động qua lại trong hoàn cảnh này?",
+      "Mối liên hệ quan trọng nào đang bị bỏ sót?",
+      "Điều kiện cụ thể nào khiến một mối liên hệ trở nên quyết định?"
+    ],
+    "vietnamese": "Mối liên hệ",
+    "group": "Thế giới quan",
+    "glyph": "∞",
+    "symbolType": 1,
+    "keywords": [
+      "hệ thống",
+      "quan hệ",
+      "bối cảnh"
+    ],
+    "philosophy": "Mọi sự vật tồn tại trong những mối liên hệ phổ biến và điều kiện cụ thể; không có vấn đề nào hoàn toàn biệt lập.",
+    "upright": "Một góc nhìn rộng hơn sẽ cho thấy các yếu tố đang tác động lẫn nhau. Hãy nhìn mạng lưới thay vì chỉ tìm một thủ phạm.",
+    "reversed": "Bạn có thể đang tách một sự việc khỏi bối cảnh của nó. Kiểm tra những mối liên hệ bị bỏ quên.",
+    "example": "Kết quả học tập liên quan đến phương pháp, thời gian, môi trường và sức khỏe.",
+    "method": "Vẽ bản đồ ba vòng: bản thân, người khác, hoàn cảnh.",
+    "blindspot": "Giải thích mọi thứ bằng một nguyên nhân duy nhất.",
+    "reflection": "Mối liên hệ nào đang bị bạn bỏ ra ngoài khung nhìn?",
+    "id": "the-connection",
+    "courseTopic": "Chương 2 · Chủ nghĩa duy vật biện chứng"
+  },
+  {
+    "number": "III",
+    "name": "The Flow",
+    "checkQuestions": [
+      "So với trước, điều gì đã thay đổi và điều gì được kế thừa?",
+      "Bạn đang đánh giá cả quá trình hay chỉ một kết quả tức thời?",
+      "Điều kiện nào đang thúc đẩy hoặc cản trở sự phát triển?"
+    ],
+    "vietnamese": "Sự phát triển",
+    "group": "Thế giới quan",
+    "glyph": "⟳",
+    "symbolType": 2,
+    "keywords": [
+      "vận động",
+      "kế thừa",
+      "đi lên"
+    ],
+    "philosophy": "Phát triển là quá trình vận động theo khuynh hướng đi lên, trong đó cái mới kế thừa và vượt qua cái cũ.",
+    "upright": "Một bước lùi không nhất thiết là thất bại. Hãy tìm phần đang được tích lũy và điều đã thay đổi về chất.",
+    "reversed": "Bạn có thể đang đòi hỏi tiến bộ theo một đường thẳng. Đánh giá lại nhịp vận động và điều kiện chuyển hóa.",
+    "example": "Một kỹ năng mới thường cần nhiều vòng thử, sai và điều chỉnh trước khi thành thạo.",
+    "method": "So sánh mình hôm nay với chính mình ở một mốc trước đó.",
+    "blindspot": "Đo phát triển chỉ bằng kết quả tức thời.",
+    "reflection": "Điều gì đang âm thầm thay đổi dù chưa hiện ra rõ?",
+    "id": "the-flow",
+    "courseTopic": "Chương 2 · Chủ nghĩa duy vật biện chứng"
+  },
+  {
+    "number": "IV",
+    "name": "The Conflict",
+    "checkQuestions": [
+      "Hai mặt đối lập đang cùng tồn tại và tác động lẫn nhau như thế nào?",
+      "Nhu cầu nào của mỗi phía cần được làm rõ?",
+      "Điều kiện nào có thể làm thay đổi quan hệ giữa hai mặt?"
+    ],
+    "vietnamese": "Mâu thuẫn",
+    "group": "Phép biện chứng",
+    "glyph": "◐",
+    "symbolType": 0,
+    "keywords": [
+      "đối lập",
+      "lực kéo",
+      "chuyển hóa"
+    ],
+    "philosophy": "Mâu thuẫn là sự thống nhất và đấu tranh của các mặt đối lập, là nguồn gốc và động lực của sự phát triển.",
+    "upright": "Hai nhu cầu đối lập đang chỉ ra vấn đề thật. Đừng vội xóa một bên; hãy tìm điều kiện để chuyển hóa mâu thuẫn.",
+    "reversed": "Bạn có thể đang né tránh mặt đối lập hoặc biến nó thành cuộc chiến thắng–thua. Gọi tên lợi ích của cả hai bên.",
+    "example": "Muốn nghỉ ngơi nhưng vẫn muốn tiến bộ cần một nhịp làm việc bền vững, không phải ép một phía biến mất.",
+    "method": "Viết hai mặt A/B và điều kiện làm chúng có thể cùng tồn tại.",
+    "blindspot": "Coi mâu thuẫn là lỗi phải loại bỏ ngay.",
+    "reflection": "Hai lực kéo nào đang cùng tồn tại trong bạn?",
+    "id": "the-conflict",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "V",
+    "name": "The Leap",
+    "checkQuestions": [
+      "Bạn đang thực sự tích lũy loại lượng nào?",
+      "Điều kiện nào đã đủ và điều kiện nào còn thiếu?",
+      "Bạn đang nóng vội tạo bước nhảy hay trì hoãn khi điều kiện đã chín muồi?"
+    ],
+    "vietnamese": "Lượng & chất",
+    "group": "Phép biện chứng",
+    "glyph": "✦",
+    "symbolType": 0,
+    "keywords": [
+      "tích lũy",
+      "ngưỡng",
+      "bước nhảy"
+    ],
+    "philosophy": "Những biến đổi về lượng tích lũy đến một điểm nút sẽ dẫn đến biến đổi về chất; bước nhảy cần điều kiện.",
+    "upright": "Những gì bạn đang tích lũy có thể đang tiến gần một ngưỡng mới. Hãy kiên trì nhưng đồng thời xác định điểm cần đổi cách làm.",
+    "reversed": "Kiểm tra xem bạn có nóng vội tạo bước nhảy khi điều kiện chưa đủ, hay đã đủ mà vẫn sợ thay đổi.",
+    "example": "GPA chưa tăng có thể cần đổi phương pháp sau một chu kỳ thử nghiệm đủ dài.",
+    "method": "Đặt một mốc đo lường và một ngưỡng quyết định rõ ràng.",
+    "blindspot": "Đánh đồng nhiều thời gian với tiến bộ thực chất.",
+    "reflection": "Bạn đang thiếu tích lũy, thiếu điều kiện hay thiếu một bước nhảy?",
+    "id": "the-leap",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "VI",
+    "name": "The Spiral",
+    "checkQuestions": [
+      "Yếu tố hợp lý nào của cách cũ cần được giữ lại?",
+      "Điều gì đã lỗi thời và cần được vượt qua?",
+      "Sau lần thử mới, bạn có thêm điều gì hay chỉ lặp lại cách cũ?"
+    ],
+    "vietnamese": "Phủ định của phủ định",
+    "group": "Phép biện chứng",
+    "glyph": "∿",
+    "symbolType": 2,
+    "keywords": [
+      "vượt qua",
+      "kế thừa",
+      "chu kỳ"
+    ],
+    "philosophy": "Phủ định biện chứng loại bỏ cái lỗi thời và giữ lại yếu tố hợp lý, tạo ra sự phát triển theo đường xoáy ốc.",
+    "upright": "Bạn có thể quay lại một câu hỏi cũ ở một trình độ mới. Hãy giữ bài học, bỏ lớp vỏ đã không còn phù hợp.",
+    "reversed": "Sự lặp lại có thể đang chỉ là quay vòng. Tìm điều mới thật sự được tạo ra sau mỗi chu kỳ.",
+    "example": "Thử lại một ngành học với hiểu biết mới khác với việc lặp y nguyên cách cũ.",
+    "method": "Tách ‘điều cần giữ’ và ‘điều cần bỏ’ trước khi bắt đầu lại.",
+    "blindspot": "Lãng mạn hóa việc quay lại mà không thay đổi điều kiện.",
+    "reflection": "Bạn đang trở lại với vốn hiểu biết nào?",
+    "id": "the-spiral",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "VII",
+    "name": "The Cause",
+    "checkQuestions": [
+      "Có bằng chứng nào cho quan hệ nguyên nhân và kết quả bạn đang nêu?",
+      "Điều kiện trung gian nào khiến nguyên nhân tạo ra kết quả?",
+      "Bạn có đang nhầm sự trùng hợp với quan hệ nhân quả?"
+    ],
+    "vietnamese": "Nguyên nhân & kết quả",
+    "group": "Phép biện chứng",
+    "glyph": "→",
+    "symbolType": 1,
+    "keywords": [
+      "nguyên nhân",
+      "tác động",
+      "hệ quả"
+    ],
+    "philosophy": "Nguyên nhân sinh ra kết quả trong những điều kiện nhất định; một kết quả có thể trở thành nguyên nhân mới.",
+    "upright": "Hãy lần theo chuỗi tác động thay vì chỉ sửa biểu hiện cuối cùng. Một nguyên nhân nhỏ có thể tạo ra hệ quả lớn.",
+    "reversed": "Bạn có thể đang gán kết quả cho một nguyên nhân thuận tiện nhưng chưa đủ. Kiểm tra điều kiện trung gian.",
+    "example": "Mất động lực có thể là kết quả của mục tiêu mơ hồ, lịch quá tải hoặc thiếu phản hồi.",
+    "method": "Vẽ chuỗi nguyên nhân → điều kiện → kết quả.",
+    "blindspot": "Nhầm tương quan với quan hệ nhân quả.",
+    "reflection": "Điều gì đang là nguyên nhân, và điều gì chỉ là biểu hiện?",
+    "id": "the-cause",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "VIII",
+    "name": "The Essence",
+    "checkQuestions": [
+      "Những biểu hiện nào lặp lại qua nhiều lần quan sát?",
+      "Một dấu hiệu đơn lẻ có đủ cơ sở cho kết luận của bạn không?",
+      "Mối liên hệ bên trong nào có thể giải thích các biểu hiện đó?"
+    ],
+    "vietnamese": "Bản chất & hiện tượng",
+    "group": "Phép biện chứng",
+    "glyph": "◇",
+    "symbolType": 0,
+    "keywords": [
+      "bản chất",
+      "biểu hiện",
+      "đào sâu"
+    ],
+    "philosophy": "Bản chất bộc lộ qua hiện tượng nhưng không đồng nhất với một biểu hiện đơn lẻ; nhận thức cần đi từ hiện tượng đến bản chất.",
+    "upright": "Đừng kết luận từ vẻ ngoài đầu tiên. Hãy tìm cấu trúc đang lặp lại phía sau những dấu hiệu.",
+    "reversed": "Bạn có thể đang dùng một nhãn dán để thay cho phân tích. Một hiện tượng có thể có nhiều tầng nguyên nhân.",
+    "example": "Một lần trì hoãn chưa nói lên bản chất của thái độ làm việc.",
+    "method": "Thu thập ba biểu hiện khác nhau trước khi kết luận.",
+    "blindspot": "Chọn một dấu hiệu nổi bật rồi gọi đó là bản chất.",
+    "reflection": "Điều gì đang lặp lại dưới những biểu hiện khác nhau?",
+    "id": "the-essence",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "IX",
+    "name": "The Possibility",
+    "checkQuestions": [
+      "Khả năng bạn đang xét có căn cứ thực tế nào?",
+      "Điều kiện khách quan và chủ quan nào còn thiếu?",
+      "Hoạt động nào có thể tạo điều kiện để khả năng thành hiện thực?"
+    ],
+    "vietnamese": "Khả năng & hiện thực",
+    "group": "Phép biện chứng",
+    "glyph": "◇",
+    "symbolType": 1,
+    "keywords": [
+      "tiềm năng",
+      "điều kiện",
+      "lựa chọn"
+    ],
+    "philosophy": "Khả năng chỉ trở thành hiện thực khi có những điều kiện khách quan và chủ quan phù hợp.",
+    "upright": "Có nhiều khả năng, nhưng không phải khả năng nào cũng đã sẵn sàng. Chọn điều có thể bắt đầu bằng điều kiện hiện tại.",
+    "reversed": "Bạn có thể đang nhầm mong ước với khả năng thực tế, hoặc bỏ qua một khả năng vì chưa thấy lối đi đầu tiên.",
+    "example": "Chuyển ngành là khả năng cần dữ liệu, thời gian và kế hoạch chuyển tiếp.",
+    "method": "Liệt kê điều kiện cần và dấu hiệu cho thấy khả năng đã chín.",
+    "blindspot": "Đánh giá khả năng mà không xét điều kiện.",
+    "reflection": "Khả năng nào đang có điều kiện để trở thành hiện thực?",
+    "id": "the-possibility",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "X",
+    "name": "The Practice",
+    "checkQuestions": [
+      "Nhận định này đã được kiểm nghiệm bằng hoạt động thực tế chưa?",
+      "Bạn có thể thử điều gì trong phạm vi nhỏ và quan sát kết quả nào?",
+      "Kết quả thực tiễn nào sẽ khiến bạn điều chỉnh cách hiểu?"
+    ],
+    "vietnamese": "Thực tiễn",
+    "group": "Lý luận nhận thức",
+    "glyph": "⌁",
+    "symbolType": 1,
+    "keywords": [
+      "hành động",
+      "kiểm nghiệm",
+      "cải tạo"
+    ],
+    "philosophy": "Thực tiễn là cơ sở, động lực, mục đích của nhận thức và là tiêu chuẩn kiểm nghiệm chân lý.",
+    "upright": "Một ý tưởng cần đi qua hành động nhỏ để trở thành tri thức sống. Hãy thử trong phạm vi an toàn và đo kết quả.",
+    "reversed": "Bạn có thể đang đọc thêm để trì hoãn việc thử. Kiến thức chưa đi vào thực tiễn vẫn chưa được kiểm nghiệm.",
+    "example": "Đổi phương pháp học trong hai tuần và theo dõi chất lượng ghi nhớ.",
+    "method": "Thiết kế một thử nghiệm nhỏ có thời hạn.",
+    "blindspot": "Nhầm cảm giác hiểu với năng lực làm được.",
+    "reflection": "Bạn có thể kiểm nghiệm suy nghĩ này bằng hành động nào?",
+    "id": "the-practice",
+    "courseTopic": "Chương 2 · Lý luận nhận thức"
+  },
+  {
+    "number": "XI",
+    "name": "The Truth",
+    "checkQuestions": [
+      "Kết luận này phù hợp với những dữ kiện khách quan nào?",
+      "Kết luận đúng trong điều kiện, thời điểm và phạm vi nào?",
+      "Bằng chứng thực tiễn mới có yêu cầu bạn cập nhật kết luận không?"
+    ],
+    "vietnamese": "Chân lý",
+    "group": "Lý luận nhận thức",
+    "glyph": "⊙",
+    "symbolType": 0,
+    "keywords": [
+      "khách quan",
+      "cụ thể",
+      "kiểm chứng"
+    ],
+    "philosophy": "Chân lý là tri thức phù hợp với hiện thực khách quan và luôn mang tính cụ thể, lịch sử.",
+    "upright": "Một kết luận đúng cần đúng với điều kiện cụ thể. Hãy cập nhật nhận định khi hiện thực thay đổi.",
+    "reversed": "Bạn có thể đang giữ một kết luận cũ như chân lý bất biến. Kiểm tra thời điểm và phạm vi đúng của nó.",
+    "example": "Một cách học từng hiệu quả chưa chắc phù hợp với môn học mới.",
+    "method": "Ghi rõ điều kiện, thời điểm và bằng chứng của kết luận.",
+    "blindspot": "Biến kinh nghiệm riêng thành quy luật chung.",
+    "reflection": "Kết luận này đúng trong điều kiện nào?",
+    "id": "the-truth",
+    "courseTopic": "Chương 2 · Lý luận nhận thức"
+  },
+  {
+    "number": "XII",
+    "name": "The Ascent",
+    "checkQuestions": [
+      "Bạn đã có những quan sát cụ thể nào trước khi khái quát?",
+      "Cách hiểu khái quát của bạn giải thích các quan sát ra sao?",
+      "Bạn sẽ trở lại thực tiễn để kiểm nghiệm cách hiểu bằng việc gì?"
+    ],
+    "vietnamese": "Quá trình nhận thức",
+    "group": "Lý luận nhận thức",
+    "glyph": "↟",
+    "symbolType": 2,
+    "keywords": [
+      "cảm tính",
+      "lý tính",
+      "thực tiễn"
+    ],
+    "philosophy": "Nhận thức vận động từ trực quan sinh động đến tư duy trừu tượng rồi trở về thực tiễn.",
+    "upright": "Bạn đang cần chuyển từ cảm giác ban đầu sang một mô hình hiểu biết, rồi quay lại thử nó trong đời sống.",
+    "reversed": "Một trong hai phía đang bị bỏ qua: dữ liệu sống động hoặc việc khái quát. Đừng dừng ở ấn tượng.",
+    "example": "Từ cảm giác học kém, phân tích dữ liệu làm bài, rồi thử một chiến lược mới.",
+    "method": "Quan sát → khái quát → thử nghiệm → cập nhật.",
+    "blindspot": "Tin rằng một trực giác hoặc một lý thuyết đã đủ.",
+    "reflection": "Bạn đang đứng ở bước nào của quá trình nhận thức?",
+    "id": "the-ascent",
+    "courseTopic": "Chương 2 · Lý luận nhận thức"
+  },
+  {
+    "number": "XIII",
+    "name": "The Forces",
+    "checkQuestions": [
+      "Năng lực và công cụ hiện có phù hợp với cách tổ chức công việc không?",
+      "Quy tắc phối hợp nào đang hỗ trợ hoặc cản trở việc sử dụng nguồn lực?",
+      "Khi công cụ thay đổi, quan hệ phối hợp cần được điều chỉnh như thế nào?"
+    ],
+    "vietnamese": "Lực lượng & quan hệ sản xuất",
+    "group": "Con người & xã hội",
+    "glyph": "⚙",
+    "symbolType": 1,
+    "keywords": [
+      "nguồn lực",
+      "công cụ",
+      "quan hệ"
+    ],
+    "philosophy": "Lực lượng sản xuất và quan hệ sản xuất tác động lẫn nhau; sự phù hợp tương đối tạo điều kiện cho phát triển.",
+    "upright": "Hãy nhìn cả năng lực/công cụ và cách phối hợp giữa người với người. Một phía đổi mà phía kia không đổi có thể tạo ma sát.",
+    "reversed": "Bạn có thể đổ lỗi cho năng lực cá nhân trong khi cấu trúc phối hợp đang cản trở.",
+    "example": "Một nhóm có người giỏi nhưng thiếu quy trình vẫn dễ trì trệ.",
+    "method": "Tách vấn đề thành năng lực, công cụ và quy tắc phối hợp.",
+    "blindspot": "Cá nhân hóa một vấn đề mang tính hệ thống.",
+    "reflection": "Điều gì trong công cụ và quan hệ đang giới hạn kết quả?",
+    "id": "the-forces",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XIV",
+    "name": "The Structure",
+    "checkQuestions": [
+      "Nền tảng vật chất và kinh tế nào đang duy trì cách tổ chức hiện tại?",
+      "Quy tắc và quan niệm đang tác động trở lại nền tảng đó ra sao?",
+      "Thay đổi biểu hiện bên ngoài đã đi kèm thay đổi điều kiện nền chưa?"
+    ],
+    "vietnamese": "Cơ sở hạ tầng & kiến trúc thượng tầng",
+    "group": "Con người & xã hội",
+    "glyph": "▦",
+    "symbolType": 0,
+    "keywords": [
+      "nền tảng",
+      "thiết chế",
+      "ý thức"
+    ],
+    "philosophy": "Cơ sở kinh tế giữ vai trò quyết định đối với kiến trúc thượng tầng, đồng thời kiến trúc thượng tầng tác động trở lại cơ sở.",
+    "upright": "Muốn thay đổi một kết quả bền vững, hãy nhìn nền tảng vật chất và những quy tắc/niềm tin đang nâng đỡ nó.",
+    "reversed": "Bạn có thể chỉ sửa khẩu hiệu hoặc biểu hiện mà chưa chạm vào điều kiện nền.",
+    "example": "Đổi thói quen làm việc cần cả lịch, công cụ và cam kết của nhóm.",
+    "method": "Hỏi: nền tảng nào đang khiến cách này tồn tại?",
+    "blindspot": "Tin rằng chỉ cần đổi thái độ là đủ.",
+    "reflection": "Nền tảng nào đang chống đỡ vấn đề này?",
+    "id": "the-structure",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XV",
+    "name": "The Society",
+    "checkQuestions": [
+      "Điều kiện đời sống nào góp phần hình thành quan niệm hiện tại?",
+      "Quan niệm ấy đang tác động trở lại hoạt động của bạn như thế nào?",
+      "Áp lực nào đến từ chuẩn mực xã hội, áp lực nào là nhu cầu đã được bạn xem xét?"
+    ],
+    "vietnamese": "Tồn tại xã hội & ý thức xã hội",
+    "group": "Con người & xã hội",
+    "glyph": "◎",
+    "symbolType": 1,
+    "keywords": [
+      "đời sống",
+      "chuẩn mực",
+      "tập thể"
+    ],
+    "philosophy": "Tồn tại xã hội quyết định ý thức xã hội, trong khi ý thức xã hội có tính độc lập tương đối và tác động trở lại đời sống.",
+    "upright": "Niềm tin cá nhân luôn có lịch sử xã hội. Nhìn bối cảnh giúp bạn vừa hiểu mình vừa thấy khả năng thay đổi.",
+    "reversed": "Bạn có thể tự trách mình vì một áp lực được tạo bởi môi trường rộng hơn.",
+    "example": "Cảm giác phải luôn năng suất có thể đến từ chuẩn mực của nhóm và nền tảng số.",
+    "method": "Nhận diện một chuẩn mực đang định hướng lựa chọn.",
+    "blindspot": "Coi áp lực xã hội là mong muốn hoàn toàn riêng tư.",
+    "reflection": "Môi trường nào đang nói hộ bạn rằng ‘phải’ làm điều này?",
+    "id": "the-society",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XVI",
+    "name": "The Human",
+    "checkQuestions": [
+      "Hoạt động và quan hệ xã hội nào đang hình thành thói quen của bạn?",
+      "Nhu cầu tự nhiên và điều kiện xã hội nào cần được xét cùng nhau?",
+      "Bạn có đang coi một đặc điểm hiện tại là bản chất bất biến?"
+    ],
+    "vietnamese": "Con người",
+    "group": "Con người & xã hội",
+    "glyph": "◯",
+    "symbolType": 0,
+    "keywords": [
+      "xã hội",
+      "lịch sử",
+      "hoạt động"
+    ],
+    "philosophy": "Con người là thực thể tự nhiên – xã hội, được hình thành trong hoạt động và các quan hệ xã hội cụ thể.",
+    "upright": "Bạn không phải một bản chất cố định. Những hoạt động và quan hệ bạn tham gia đang tạo nên mình.",
+    "reversed": "Một nhãn dán về tính cách có thể đang che khuất khả năng biến đổi.",
+    "example": "Thói quen hợp tác mới dần hình thành một phiên bản tự tin hơn.",
+    "method": "Chọn một hoạt động có thể tạo ra phẩm chất bạn muốn có.",
+    "blindspot": "Nghĩ rằng ‘tôi là người như vậy’ là kết luận cuối cùng.",
+    "reflection": "Hoạt động nào đang làm bạn trở thành người hôm nay?",
+    "id": "the-human",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XVII",
+    "name": "The Masses",
+    "checkQuestions": [
+      "Thay đổi này cần sự tham gia và nguồn lực của những ai?",
+      "Phần chủ động của cá nhân và điều kiện tập thể liên hệ như thế nào?",
+      "Bạn đang ôm trách nhiệm một mình hay để tập thể quyết định thay mình?"
+    ],
+    "vietnamese": "Quần chúng & cá nhân",
+    "group": "Con người & xã hội",
+    "glyph": "⋯",
+    "symbolType": 1,
+    "keywords": [
+      "tập thể",
+      "vai trò",
+      "lịch sử"
+    ],
+    "philosophy": "Quần chúng là lực lượng sáng tạo lịch sử; cá nhân có vai trò trong những điều kiện và quan hệ xã hội nhất định.",
+    "upright": "Một thay đổi bền vững cần kết nối cá nhân với năng lực tập thể. Hãy tìm người cùng hành động.",
+    "reversed": "Bạn có thể ôm toàn bộ trách nhiệm một mình hoặc chờ đám đông quyết định thay mình.",
+    "example": "Một nhóm học nhỏ có thể tạo kỷ luật mà ý chí cá nhân khó duy trì.",
+    "method": "Xác định phần việc cá nhân và nguồn lực tập thể.",
+    "blindspot": "Lãng mạn hóa cá nhân tách khỏi điều kiện xã hội.",
+    "reflection": "Ai đang cùng tạo ra hoàn cảnh này với bạn?",
+    "id": "the-masses",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XVIII",
+    "name": "The Turning",
+    "checkQuestions": [
+      "Mâu thuẫn nào đang thúc đẩy thay đổi cách tổ chức đời sống?",
+      "Lực lượng và điều kiện nào có thể duy trì sự thay đổi?",
+      "Bạn đang quan sát biến động nhất thời hay thay đổi trong cách tổ chức?"
+    ],
+    "vietnamese": "Biến đổi xã hội",
+    "group": "Con người & xã hội",
+    "glyph": "↻",
+    "symbolType": 2,
+    "keywords": [
+      "chuyển hóa",
+      "xung đột",
+      "lịch sử"
+    ],
+    "philosophy": "Biến đổi xã hội nảy sinh từ những mâu thuẫn và thay đổi trong phương thức con người tổ chức đời sống.",
+    "upright": "Một thay đổi nhỏ có thể là dấu hiệu của chuyển động lớn hơn. Hãy nhận diện lực lượng và hướng đi của nó.",
+    "reversed": "Bạn có thể đang coi hiện trạng là vĩnh viễn hoặc tin một thay đổi cá nhân sẽ tự động đổi cả hệ thống.",
+    "example": "Một quy tắc nhóm mới chỉ bền khi phù hợp với nhu cầu và nguồn lực thực tế.",
+    "method": "Theo dõi mâu thuẫn, lực lượng và điều kiện chuyển hóa.",
+    "blindspot": "Nhầm biến động nhất thời với thay đổi căn bản.",
+    "reflection": "Điều gì đang tích lũy để làm thay đổi cách sống hiện tại?",
+    "id": "the-turning",
+    "courseTopic": "Chương 3 · Chủ nghĩa duy vật lịch sử"
+  },
+  {
+    "number": "XIX",
+    "name": "The Particular",
+    "checkQuestions": [
+      "Điểm chung nào có thể nhận ra trong hoàn cảnh cụ thể này?",
+      "Điều kiện riêng nào cần giữ lại khi áp dụng kinh nghiệm chung?",
+      "Bạn có đang biến kinh nghiệm cá nhân thành công thức cho mọi người?"
+    ],
+    "vietnamese": "Cái riêng & cái chung",
+    "group": "Phép biện chứng",
+    "glyph": "⊚",
+    "symbolType": 0,
+    "keywords": [
+      "đặc thù",
+      "chung",
+      "đơn nhất"
+    ],
+    "philosophy": "Cái chung tồn tại trong cái riêng, thông qua cái riêng; cái riêng không tồn tại tách khỏi những mối liên hệ với cái chung.",
+    "upright": "Tìm quy luật chung nhưng vẫn giữ lại điều kiện đặc thù của tình huống bạn đang sống.",
+    "reversed": "Bạn có thể áp dụng một công thức chung mà bỏ qua hoàn cảnh riêng, hoặc xem trải nghiệm riêng là đúng cho mọi người.",
+    "example": "Cùng một phương pháp học có thể cần điều chỉnh theo kiến thức nền của từng người.",
+    "method": "Viết một điểm chung và hai điều kiện riêng trước khi áp dụng kinh nghiệm.",
+    "blindspot": "Biến kinh nghiệm cá nhân thành khuôn mẫu cho tất cả.",
+    "reflection": "Điều gì ở tình huống này là phổ biến, và điều gì chỉ riêng bạn có?",
+    "id": "the-particular",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "XX",
+    "name": "The Chance",
+    "checkQuestions": [
+      "Kết quả này lặp lại do nguyên nhân cơ bản nào hay chỉ xuất hiện một lần?",
+      "Hoàn cảnh bên ngoài nào đã góp phần tạo ra kết quả?",
+      "Bạn cần thêm những lần quan sát nào trước khi kết luận một xu hướng?"
+    ],
+    "vietnamese": "Tất nhiên & ngẫu nhiên",
+    "group": "Phép biện chứng",
+    "glyph": "⋈",
+    "symbolType": 1,
+    "keywords": [
+      "quy luật",
+      "ngẫu nhiên",
+      "điều kiện"
+    ],
+    "philosophy": "Tất nhiên do những nguyên nhân cơ bản bên trong quy định; ngẫu nhiên do sự kết hợp của các hoàn cảnh bên ngoài. Chúng thống nhất và có thể chuyển hóa trong những điều kiện nhất định.",
+    "upright": "Phân biệt xu hướng có cơ sở với một sự kiện tình cờ để chọn điều bạn có thể chủ động chuẩn bị.",
+    "reversed": "Một kết quả may mắn hoặc bất lợi đơn lẻ có thể đang bị bạn xem thành quy luật chắc chắn.",
+    "example": "Một lần làm bài tốt do trúng phần đã ôn chưa đủ để kết luận đã nắm chắc cả môn.",
+    "method": "Quan sát nhiều lần; ghi điều lặp lại và những điều kiện thay đổi.",
+    "blindspot": "Gọi mọi kết quả là số phận hoặc mọi sự trùng hợp là quy luật.",
+    "reflection": "Bạn đang dựa vào xu hướng lặp lại hay một sự kiện đơn lẻ?",
+    "id": "the-chance",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  },
+  {
+    "number": "XXI",
+    "name": "The Form",
+    "checkQuestions": [
+      "Nội dung thực chất nào cần được thể hiện để đạt mục tiêu?",
+      "Cách tổ chức hiện tại đang hỗ trợ hay cản trở nội dung?",
+      "Bạn đã kiểm tra riêng chất lượng nội dung và sự phù hợp của hình thức chưa?"
+    ],
+    "vietnamese": "Nội dung & hình thức",
+    "group": "Phép biện chứng",
+    "glyph": "▣",
+    "symbolType": 0,
+    "keywords": [
+      "cấu trúc",
+      "nội dung",
+      "phù hợp"
+    ],
+    "philosophy": "Nội dung và hình thức thống nhất với nhau; nội dung giữ vai trò quyết định, còn hình thức có tính độc lập tương đối và tác động trở lại nội dung.",
+    "upright": "Tìm cách tổ chức phù hợp để nội dung và năng lực thực chất được thể hiện rõ hơn.",
+    "reversed": "Bạn có thể đang chăm chút vẻ ngoài trong khi nội dung chưa vững, hoặc có nội dung tốt nhưng cách tổ chức gây cản trở.",
+    "example": "Một bài thuyết trình cần cả lập luận có cơ sở và cấu trúc giúp người nghe theo dõi.",
+    "method": "Kiểm tra riêng chất lượng nội dung và cách tổ chức; sửa điểm đang cản trở mục tiêu.",
+    "blindspot": "Đánh đồng vẻ ngoài chỉn chu với chất lượng thực chất.",
+    "reflection": "Hình thức hiện tại đang hỗ trợ hay cản trở nội dung bạn muốn thể hiện?",
+    "id": "the-form",
+    "courseTopic": "Chương 2 · Phép biện chứng duy vật"
+  }
+]

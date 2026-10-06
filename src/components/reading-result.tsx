@@ -326,14 +326,13 @@ export function ReadingResultView({
                 }}
               >
                 <h2 className="reading-section-title">
-                  <span>0{i + 1}</span> {block.title}
+                  <span className="section-number">0{i + 1}</span>
+                  <span className="section-label">— {block.title}</span>
                 </h2>
                 {i === 0 ? (
                   <ReadingParagraphs text={block.text} />
                 ) : (
-                  <ContextualInsight
-                    result={result}
-                  />
+                  <ContextualInsight result={result} />
                 )}
               </motion.section>
             ))}
@@ -347,7 +346,8 @@ export function ReadingResultView({
               }}
             >
               <h2 className="reading-section-title">
-                <span>03</span> Điều cần kiểm tra
+                <span className="section-number">03</span>
+                <span className="section-label">— Điều cần kiểm tra</span>
               </h2>
               <ul className="reading-checks">
                 {checks.map((check, i) => (
@@ -365,7 +365,8 @@ export function ReadingResultView({
               }}
             >
               <h2 className="reading-section-title">
-                <span>04</span> Ba bước có thể thử
+                <span className="section-number">04</span>
+                <span className="section-label">— Ba bước có thể thử</span>
               </h2>
               <p className="action-intro">
                 Chọn một bước để lưu và kiểm nghiệm sau.
@@ -448,10 +449,7 @@ export function ReadingResultView({
                 <article className="follow-up-entry" key={i}>
                   <h3>{entry.question}</h3>
                   <ReadingParagraphs text={entry.result.message} />
-                  <ContextualInsight
-                    result={entry.result}
-                    compact
-                  />
+                  <ContextualInsight result={entry.result} compact />
                   {entry.result.checks ? (
                     <ul className="reading-checks">
                       {entry.result.checks.map((check, j) => (

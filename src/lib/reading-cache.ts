@@ -24,7 +24,7 @@ export function readingFingerprint(input: ReadingInput) {
     ]) ?? [],
   ];
   return JSON.stringify([
-    "reading:v5",
+    "reading:v6",
     CARD_DATA_VERSION,
     input.question.trim(),
     input.spread,

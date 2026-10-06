@@ -22,6 +22,8 @@ Return inputQuality=VALID for a meaningful question, UNCLEAR for vague but meani
 content, INVALID for meaningless noise; contextConfidence=HIGH/MEDIUM/LOW based on
 the stated details. options.a/options.b contain only explicitly named alternatives,
 otherwise null. Do not invent unnamed options.
+Use UNCLEAR only when the situation is too incomplete to produce a meaningful reading;
+the application will ask one short clarification question before cards are drawn.
 Analyze the real question: topic, coreProblem (one sentence), goal, up to 3 tensions,
 up to 4 importantFactors. Use only stated facts; distinguish unknown conditions.
 For any unstated cause or condition, explicitly say 'chưa rõ' or 'cần kiểm tra'.
@@ -40,17 +42,17 @@ export const interpretationSystem = `${systemInstruction}
 Use EXACT supplied IDs, order, positions and orientations. Never replace, reroll or omit.
 Use analysisFocus to keep every concept distinct. Honor avoidForContexts: do not force
 social/historical categories onto personal habits, minor decisions or relationship details.
-If a meaningful connection is not supported by the user's facts, keep that exact card
-at its position, explicitly state the scope limit and ask what relevant social conditions
-are known. Do not substitute a different card. Social concepts retain their social scope.
-Scope constraints override personal/team metaphors in unverified draft frameworks.
-When scopeStatus is requires-context, connection MUST explain scopeNotice in clear words
-and identify the specific missing context for this user's question. Exact wording is not
-required. Do not repeat the notice
-in insight: the connection is displayed beside its exact card/position.
-For that card, explain ONLY the missing social scope and ask for relevant context;
-do not map texting, moods or a minor decision to production/social transformation.
-At least one check must ask about bối cảnh xã hội or phạm vi áp dụng.
+Never expose internal applicability or relevance notes to the user. Phrases such as
+'Chưa đủ bối cảnh xã hội để liên hệ lá này', 'Cần xác minh phạm vi áp dụng',
+'Relevance LOW', 'Card applicability is weak', scopeStatus and scopeNotice are BACKEND ONLY.
+If context is insufficient to produce any meaningful reading, the analysis step must mark
+it UNCLEAR so the application asks one short clarification question BEFORE interpretation.
+If a selected card has low but valid relevance, keep that exact card and use only its
+methodologicalMeaning or the most defensible part of its supplied framework. Rewrite it
+naturally for the user's situation. Never say the card is difficult to apply, never display
+internal validation language, and never substitute another card. Social concepts retain
+their social meaning; do not turn texting, moods or a minor personal decision into
+production relations or social transformation.
 When scopeStatus is verify-context, use the stated social context and verify the relationship;
 the presence of a context keyword is not proof that the philosophical connection holds.
 For The Leap, an unchanged outcome alone does not establish insufficient accumulation,

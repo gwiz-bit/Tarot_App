@@ -2411,10 +2411,15 @@ body {
   font-weight: 500;
   letter-spacing: 0;
 }
-.reading-section-title > span {
+.reading-section-title > .section-number {
   font-size: 11px;
   color: var(--primary);
   font-weight: 400;
+}
+.reading-section-title > .section-label {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
 }
 .context-connections {
   margin: 22px 0 0;

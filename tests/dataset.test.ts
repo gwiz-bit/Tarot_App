@@ -167,6 +167,7 @@ test("E: same situation reaches different concrete local lenses and minimal sele
       "checkQuestions",
       "concept",
       "definition",
+      "methodologicalMeaning",
       "name",
       "orientation",
       "orientationFramework",
@@ -202,7 +203,7 @@ test("F: Leap has different applications to GPA, relationships and business, pre
   assert.equal(new Set(outputs).size, 3);
 });
 
-test("social scope is carried to Gemini and retained when local fallback lacks evidence", () => {
+test("social applicability stays internal while local fallback uses a natural defensible lens", () => {
   const unrelated =
     "Người yêu mình trả lời tin nhắn chậm, mình nên hiểu thế nào?";
   for (const card of cards.slice(16)) {
@@ -212,10 +213,21 @@ test("social scope is carried to Gemini and retained when local fallback lacks e
     assert.deepEqual(context.avoidForContexts, card.avoidForContexts);
     assert.equal(context.scopeStatus, "requires-context");
     assert.ok(context.scopeNotice);
+    assert.equal(context.methodologicalMeaning, card.methodologicalMeaning);
     const result = localReading(input);
-    assert.match(result.message, /bối cảnh xã hội/);
-    assert.match(result.checks![0], /bối cảnh xã hội phù hợp/);
-    assert.equal(result.actions[1].title, "Xác minh phạm vi áp dụng");
+    const visible = [
+      result.message,
+      result.reflection,
+      ...result.checks!,
+      ...result.actions.flatMap((action) => [action.title, action.detail]),
+      ...result.connections!.map((connection) => connection.text),
+    ].join(" ");
+    assert.doesNotMatch(
+      visible,
+      /chưa đủ bối cảnh xã hội|phạm vi áp dụng|relevance|applicability/i,
+    );
+    assert.equal(result.actions[1].title, "Ghi nhận ảnh hưởng thực tế");
+    assert.ok(visible.includes(card.methodologicalMeaning));
     assert.ok(readingResultSchema.safeParse(result).success);
   }
 });

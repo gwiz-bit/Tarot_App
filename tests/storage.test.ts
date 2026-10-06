@@ -113,6 +113,32 @@ test("history round-trips orientation, action outcome and follow-ups and notifie
   assert.deepEqual(readHistory(), []);
   assert.equal(events, 2);
 });
+test("legacy applicability diagnostics are removed before saved readings reach UI", () => {
+  const reading = record();
+  const legacy = {
+    ...reading,
+    result: {
+      ...reading.result,
+      message: "Chưa đủ bối cảnh xã hội để liên hệ lá này với vấn đề này.",
+      reflection:
+        "Cần làm rõ phạm vi và dữ kiện liên quan, thay vì xem lá bài là kết luận.",
+      actions: reading.result.actions.map((action, index) =>
+        index === 1 ? { ...action, title: "Xác minh phạm vi áp dụng" } : action,
+      ),
+    },
+  };
+  localStorage.setItem(
+    HISTORY,
+    JSON.stringify({ version: 1, readings: [legacy] }),
+  );
+  const restored = readHistory()[0];
+  assert.ok(restored);
+  assert.doesNotMatch(
+    JSON.stringify(restored),
+    /chưa đủ bối cảnh xã hội|phạm vi áp dụng|relevance|applicability/i,
+  );
+  assert.equal(restored.result.actions[1].title, "Ghi nhận ảnh hưởng thực tế");
+});
 test("history replaces the same reading and keeps the 30 newest readings", () => {
   const reading = record();
   saveRecord(reading);

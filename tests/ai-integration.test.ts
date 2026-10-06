@@ -238,6 +238,45 @@ test("gibberish reaches neither API route nor external provider, including follo
   assert.equal(calls, 0);
 });
 
+test("severely underspecified questions ask for one clarification before cards are drawn", async () => {
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls++;
+    throw new Error("must not call for deterministic clarification");
+  };
+  for (const result of [
+    await analyze("Mình nên làm gì?"),
+    await analyzeQuestion("Mình nên làm gì?"),
+  ]) {
+    assert.ok("blocked" in result && result.category === "clarification");
+    assert.match(result.message, /\?$/u);
+  }
+  assert.equal(calls, 0);
+
+  globalThis.fetch = async () => {
+    calls++;
+    return envelope("groq", {
+      inputQuality: "UNCLEAR",
+      contextConfidence: "LOW",
+      options: { a: null, b: null },
+      safe: true,
+      safetyCategory: null,
+      spreadType: "QUICK_INSIGHT",
+      ...localQuestionContext("Mình đang rối về chuyện học gần đây."),
+    });
+  };
+  const providerClarification = await analyzeQuestion(
+    "Mình đang rối về chuyện học gần đây.",
+    crypto.randomUUID(),
+  );
+  assert.ok(
+    "blocked" in providerClarification &&
+      providerClarification.category === "clarification",
+  );
+  assert.match(providerClarification.message, /\?$/u);
+  assert.equal(calls, 1);
+});
+
 test("a follow-up that quotes only the original question is corrected using the exact new question and cards", async () => {
   const followUp = "Mình nên đo kết quả sau buổi tự học như thế nào?";
   let calls = 0;

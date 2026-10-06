@@ -176,7 +176,7 @@ test("successful results cache simple → academic → simple, classification an
     });
     assert.equal(calls, 6);
     const stored = JSON.parse(
-      sessionStorage.getItem("philo-tarot:ai-cache:v2")!,
+      sessionStorage.getItem("philo-tarot:ai-cache:v3")!,
     );
     assert.equal(stored.entries.length, 6);
     assert.ok(
@@ -200,7 +200,7 @@ test("failed or local responses are retryable and never enter the successful AI 
     await interpret(basicInput);
     await interpret(basicInput);
     assert.equal(calls, 2);
-    assert.equal(sessionStorage.getItem("philo-tarot:ai-cache:v2"), null);
+    assert.equal(sessionStorage.getItem("philo-tarot:ai-cache:v3"), null);
     globalThis.fetch = async () => {
       calls++;
       return new Response("quota", { status: 429 });

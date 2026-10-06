@@ -25,6 +25,7 @@ Không mô phỏng dashboard doanh nghiệp, không dùng hình witch/fantasy, k
 - Một câu hỏi tự do dẫn tới một trong bốn cấu trúc trải cố định, không cần tài khoản.
 - Lá người dùng chọn và chiều của lá được giữ xuyên suốt lần trải.
 - Dữ liệu học thuật cố định; AI chỉ liên hệ với vấn đề hiện tại.
+- Câu hỏi thiếu dữ kiện nghiêm trọng được hỏi lại trước khi rút bài. Ghi chú relevance/phạm vi chỉ dùng để kiểm tra ở backend; kết quả dùng phần liên quan chắc chắn nhất và diễn đạt tự nhiên.
 - Hiệu ứng giúp hiểu thao tác chọn, lật và chuyển sang kết quả.
 - Kết quả gồm bốn phần: điều cần nhìn rõ, một mạch soi vào vấn đề, tối đa ba câu cần kiểm tra và ba hành động có thể thử.
 

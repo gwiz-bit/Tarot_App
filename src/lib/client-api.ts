@@ -8,10 +8,10 @@ import {
   type ReadingInput,
 } from "./domain";
 import { readingFingerprint } from "./reading-cache";
-import { inputQualityError } from "./input-quality";
+import { clarificationQuestion, inputQualityError } from "./input-quality";
 
 const cacheSchema = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
   entries: z
     .array(
       z.object({
@@ -25,7 +25,7 @@ const cacheSchema = z.object({
     .max(24),
 });
 type CachedResult = z.infer<typeof cacheSchema>["entries"][number]["result"];
-const CACHE_KEY = "philo-tarot:ai-cache:v2";
+const CACHE_KEY = "philo-tarot:ai-cache:v3";
 const successfulRequests = new Map<string, CachedResult>();
 const clientDebugCounts = new Map<
   string,
@@ -101,11 +101,11 @@ function remember(key: string, result: unknown) {
     key,
     result,
   }));
-  let payload = JSON.stringify({ version: 2, entries });
+  let payload = JSON.stringify({ version: 3, entries });
   while (payload.length > 180000 && entries.length > 1) {
     successfulRequests.delete(entries[0].key);
     entries = entries.slice(1);
-    payload = JSON.stringify({ version: 2, entries });
+    payload = JSON.stringify({ version: 3, entries });
   }
   try {
     sessionStorage.setItem(CACHE_KEY, payload);
@@ -245,6 +245,15 @@ export function analyze(
         blocked: true,
         category: "input",
         message: quality,
+      }),
+    );
+  const clarification = clarificationQuestion(parsed.question);
+  if (clarification)
+    return Promise.resolve(
+      blockedSchema.parse({
+        blocked: true,
+        category: "clarification",
+        message: clarification,
       }),
     );
   return post(

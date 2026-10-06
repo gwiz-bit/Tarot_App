@@ -528,7 +528,10 @@ export function readingChecks(
     if (input.cards[0].id === "the-conflict") return context.checks;
     const card = getCard(input.cards[0].id)!;
     return card.avoidForContexts.length
-      ? [scopeCheck(card.concept), ...card.checkQuestions.slice(0, 2)]
+      ? [
+          `Điều kiện, hoạt động hoặc mối quan hệ nào đang thực sự ảnh hưởng đến ${context.subject}?`,
+          ...card.checkQuestions.slice(0, 2),
+        ]
       : card.checkQuestions.slice(0, 3);
   }
   const checks = input.cards.flatMap((draw, index) => {
@@ -546,13 +549,10 @@ export function readingChecks(
     );
   if (input.cards.some((draw) => getCard(draw.id)!.avoidForContexts.length))
     checks.push(
-      `Có hoạt động, quan hệ hoặc thay đổi nào ở phạm vi xã hội thực sự liên quan đến ${context.subject}? Dữ kiện nào còn thiếu?`,
+      `Điều kiện, hoạt động hoặc mối quan hệ nào đang thực sự ảnh hưởng đến ${context.subject}?`,
     );
   if (checks.length < 2) checks.push(context.checks[0]);
   return checks.slice(0, 3);
-}
-function scopeCheck(concept: string) {
-  return `Câu hỏi đã có dữ kiện về ${concept} trong bối cảnh xã hội phù hợp chưa?`;
 }
 export function outOfScope(followUp: string, question = "") {
   const text = normalize(followUp);
@@ -618,24 +618,14 @@ export function localReading(input: ReadingInput): ReadingResult {
     };
   });
   const first = views[0];
-  const scoped = views.find((view) => view.card.avoidForContexts.length);
+  const weaklyRelated = views.find(
+    (view) => view.context.scopeStatus === "requires-context",
+  );
   const connections = views.map((view) => {
     const { card, orientation } = view;
-    const scopeTopics: Record<string, string> = {
-      "the-forces": "sản xuất, quan hệ lao động và điều kiện tổ chức lao động",
-      "the-structure": "cơ sở kinh tế, thiết chế và chính sách xã hội",
-      "the-society": "đời sống vật chất, văn hóa và chuẩn mực xã hội",
-      "the-human":
-        "hoạt động, môi trường giáo dục hoặc lao động và các quan hệ xã hội",
-      "the-masses": "hoạt động của cộng đồng và điều kiện lịch sử",
-      "the-turning": "biến đổi ở phạm vi xã hội và các điều kiện lịch sử",
-    };
     let text: string;
-    if (card.avoidForContexts.length) {
-      text =
-        view.context.scopeStatus === "requires-context"
-          ? `Câu hỏi chưa có dữ kiện về ${scopeTopics[card.id]}. Lá ${orientation === "upright" ? "xuôi" : "ngược"} này chưa đủ cơ sở để đánh giá ${view.label[0].toLowerCase() + view.label.slice(1)}; cần làm rõ phạm vi xã hội trước khi liên hệ.`
-          : `Cần kiểm tra ${scopeTopics[card.id]} thực sự liên quan đến ${context.subject} như thế nào. Lá ${orientation === "upright" ? "xuôi" : "ngược"} ${orientation === "upright" ? "gợi xem xét điều kiện này" : "gợi kiểm tra việc áp dụng thiếu bối cảnh"}; chưa xác nhận một kết luận.`;
+    if (view.context.scopeStatus === "requires-context") {
+      text = `${card.methodologicalMeaning} Với ${context.subject}, hãy dùng câu hỏi này để tách điều đã quan sát khỏi điều đang giả định.`;
     } else if (card.id === "the-mind") {
       text =
         orientation === "reversed"
@@ -698,8 +688,8 @@ export function localReading(input: ReadingInput): ReadingResult {
       ? `${context.subject === "hướng đi hiện tại" ? "Chưa đủ dữ kiện để kết luận bạn nên đổi hướng." : "Chưa đủ dữ kiện để chọn một hướng thay bạn."} Cần làm rõ hai lựa chọn và điều bạn muốn cải thiện, rồi kiểm tra điều kiện thực hiện.`
       : input.spread === "conflict"
         ? context.conflict
-        : scoped
-          ? `Chưa đủ bối cảnh xã hội để liên hệ lá này với ${context.subject}. Cần làm rõ phạm vi và dữ kiện liên quan, thay vì xem lá bài là kết luận về hoàn cảnh của bạn.`
+        : weaklyRelated
+          ? `Hãy bắt đầu từ những ảnh hưởng có thể quan sát trong ${context.subject}. ${weaklyRelated.card.methodologicalMeaning}`
           : `Hãy bắt đầu bằng một điều có thể kiểm chứng về ${context.subject}. ${first.card.id === "the-leap" ? context.accumulation : connections[0].text.split(/(?<=[.!?])\s/u)[0]}`);
   const arrangement =
     input.spread === "choice"
@@ -713,11 +703,6 @@ export function localReading(input: ReadingInput): ReadingResult {
     arrangement,
     followAnswer || relationship,
     ...(input.followUp ? [relationship] : []),
-    ...(scoped
-      ? [
-          "Những lá có phạm vi xã hội cần thêm bối cảnh; chưa thể dùng chúng để kết luận về lựa chọn cá nhân.",
-        ]
-      : []),
   ].join("\n\n");
   return {
     source: "local",
@@ -751,14 +736,14 @@ export function localReading(input: ReadingInput): ReadingResult {
               title:
                 input.spread === "choice"
                   ? "So sánh cùng tiêu chí"
-                  : scoped
-                    ? "Xác minh phạm vi áp dụng"
+                  : weaklyRelated
+                    ? "Ghi nhận ảnh hưởng thực tế"
                     : "Thử một thay đổi",
               detail:
                 input.spread === "choice"
                   ? "Chọn cùng một nhóm tiêu chí cho cả hai hướng; ghi dữ kiện đã có và điều còn thiếu ở mỗi hướng."
-                  : scoped
-                    ? "Ghi dữ kiện về bối cảnh xã hội liên quan; đánh dấu điều chưa biết trước khi áp dụng lá này vào hoàn cảnh của bạn."
+                  : weaklyRelated
+                    ? `Ghi điều kiện, hoạt động hoặc mối quan hệ đang thực sự ảnh hưởng đến ${context.subject}; tách chúng khỏi điều bạn mới suy đoán.`
                     : `${context.test[0].toUpperCase() + context.test.slice(1)}.`,
             },
             {

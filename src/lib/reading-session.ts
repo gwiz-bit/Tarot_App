@@ -11,6 +11,7 @@ import {
   type ReadingStyle,
 } from "./domain";
 import { readHistory, shuffleDeck } from "./storage";
+import { sanitizeReadingRecord } from "./public-reading";
 
 const KEY = "philo-tarot:session:v1";
 const sessionSchema = questionSchema
@@ -90,10 +91,16 @@ let memory: ReadingSession | null = null;
 let memoryOnly = false;
 function latestSavedProgress(session: ReadingSession | null) {
   if (!session?.record) return session;
-  const record = session.record;
+  const current = session;
+  const currentRecord = session.record;
+  const record = {
+    ...sanitizeReadingRecord(currentRecord),
+    readingSessionId: current.readingSessionId,
+  };
+  const sanitized = { ...current, record };
   const stored = readHistory().find((entry) => entry.id === record.id);
   const saved = stored
-    ? { ...stored, readingSessionId: session.readingSessionId }
+    ? { ...stored, readingSessionId: current.readingSessionId }
     : undefined;
   if (
     saved &&
@@ -105,14 +112,14 @@ function latestSavedProgress(session: ReadingSession | null) {
     JSON.stringify(saved) !== JSON.stringify(record)
   ) {
     const updated = {
-      ...session,
-      record: { ...saved, readingSessionId: session.readingSessionId },
+      ...current,
+      record: { ...saved, readingSessionId: current.readingSessionId },
       style: saved.style,
     };
     writeReadingSession(updated);
     return updated;
   }
-  return session;
+  return sanitized;
 }
 
 export function createReadingSession(

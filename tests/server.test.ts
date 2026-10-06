@@ -79,7 +79,7 @@ function providerReading(request: ReadingInput = input) {
     followUpSuggestion: "Bạn có thể kiểm nghiệm điều gì trong tuần này?",
   };
 }
-test("social cards require a scope explanation; repair preserves IDs and continued violations fall back", async () => {
+test("internal applicability language is repaired and never reaches the public reading", async () => {
   const original = globalThis.fetch;
   const oldEnabled = process.env.AI_ENABLED,
     oldKey = process.env.GEMINI_API_KEY;
@@ -92,8 +92,9 @@ test("social cards require a scope explanation; repair preserves IDs and continu
     cards: [{ id: "the-forces", orientation: "upright" }],
   };
   const fixed = providerReading(request);
-  fixed.cardReadings[0].connection += ` ${SOCIAL_SCOPE_NOTICE}`;
-  fixed.insight = `Góc nhìn — Lực lượng sản xuất — Quan hệ sản xuất: ${SOCIAL_SCOPE_NOTICE} Chưa rõ câu hỏi về tin nhắn có dữ kiện sản xuất hay quan hệ lao động. Cần kiểm tra phạm vi trước khi liên hệ.`;
+  const leaked = structuredClone(fixed);
+  leaked.cardReadings[0].connection += ` ${SOCIAL_SCOPE_NOTICE}`;
+  leaked.insight = `Chưa đủ bối cảnh xã hội để liên hệ lá này. Cần xác minh phạm vi áp dụng trước khi trả lời.`;
   try {
     resetAiRuntime();
     let calls = 0;
@@ -109,18 +110,21 @@ test("social cards require a scope explanation; repair preserves IDs and continu
       assert.equal(context.cards[0].scopeNotice, SOCIAL_SCOPE_NOTICE);
       assert.ok(context.cards[0].avoidForContexts.length);
       if (calls === 2)
-        assert.match(JSON.stringify(data.systemInstruction), /social scope/);
-      return response(calls === 1 ? providerReading(request) : fixed);
+        assert.match(JSON.stringify(data.systemInstruction), /BACKEND ONLY/);
+      return response(calls === 1 ? leaked : fixed);
     };
     const repaired = await generateReading(request);
     assert.ok("source" in repaired && repaired.source === "ai");
     assert.equal(calls, 2);
-    resetAiRuntime();
+    assert.doesNotMatch(
+      JSON.stringify(repaired),
+      /chưa đủ bối cảnh xã hội|phạm vi áp dụng|relevance|applicability/i,
+    );
     resetAiRuntime();
     calls = 0;
     globalThis.fetch = async () => {
       calls++;
-      return response(providerReading(request));
+      return response(leaked);
     };
     const fallback = await generateReading(request);
     assert.ok("source" in fallback && fallback.source === "local");
@@ -404,6 +408,7 @@ test("AI-first classification and one synthesis call use only minimal action dat
       "checkQuestions",
       "concept",
       "definition",
+      "methodologicalMeaning",
       "name",
       "orientation",
       "orientationFramework",
@@ -750,13 +755,13 @@ test("the reported academic choice accepts clear scope paraphrases and exposes o
   data.cardReadings[0].connection =
     "Lá ngược gợi kiểm tra lý do muốn đổi hướng dựa trên dữ kiện nào, phần nào còn là giả định. Nó chưa chứng minh hướng hiện tại sai.";
   data.cardReadings[1].connection =
-    "Chưa rõ thay đổi bạn nói đến có liên quan đến biến đổi ở phạm vi xã hội không. Cần làm rõ bối cảnh trước khi dùng lá này để đánh giá B.";
+    "Theo dõi mâu thuẫn và điều kiện đang thúc đẩy quyết định đổi hướng; tách thay đổi có thể quan sát khỏi kỳ vọng về kết quả.";
   data.cardReadings[2].connection =
-    "Chưa có dữ kiện về hoạt động, môi trường giáo dục hoặc lao động và quan hệ xã hội của bạn. Cần kiểm tra những điều kiện ấy cho cả hai hướng.";
+    "Nhìn vào hoạt động và mối quan hệ đang hình thành cách bạn đánh giá hai hướng; tránh coi lựa chọn hiện tại là một đặc điểm bất biến.";
   // Synthesis refers naturally to the roles. The exact labels come from the
   // checked evidence/UI, without forcing the long concept names into prose.
   data.insight =
-    "Cách bạn hiểu lý do muốn thay đổi cần được đối chiếu với điều kiện thực hiện. Chưa biết A và B cụ thể là gì, nên các lá chưa cho phép nghiêng về một hướng.\n\nHãy so sánh cả hai hướng cùng tiêu chí và bổ sung bối cảnh xã hội còn thiếu; vị trí thứ ba kiểm tra điều kiện cho cả hai lựa chọn.";
+    "Cách bạn hiểu lý do muốn thay đổi cần được đối chiếu với điều kiện thực hiện. Chưa biết A và B cụ thể là gì, nên có thể bắt đầu bằng việc gọi tên từng hướng.\n\nHãy so sánh cả hai hướng cùng tiêu chí; vị trí thứ ba kiểm tra hoạt động và mối quan hệ nào đang ảnh hưởng đến cả hai lựa chọn.";
   let calls = 0;
   try {
     globalThis.fetch = async () => {

@@ -26,7 +26,7 @@ import { classificationSystem, interpretationSystem } from "./ai/prompts";
 import { providerAnalysisSchema, providerReadingSchema } from "./ai/schemas";
 import { ValidationFailure } from "./ai/errors";
 import { getAiRouter } from "./ai/router";
-import { inputQualityError } from "./input-quality";
+import { clarificationQuestion, inputQualityError } from "./input-quality";
 import { readingFingerprint } from "./reading-cache";
 
 const spreadTypeToInternal: Record<
@@ -125,6 +125,13 @@ function mapProviderAnalysis(
       category: "input",
       message: "Hãy viết một câu hỏi có nghĩa về điều bạn muốn hiểu rõ hơn.",
     };
+  if (result.inputQuality === "UNCLEAR")
+    return {
+      blocked: true as const,
+      category: "clarification",
+      message:
+        "Bạn có thể nói rõ tình huống đang xảy ra và điều bạn muốn hiểu hoặc quyết định không?",
+    };
   const providerSpread = spreadTypeToInternal[result.spreadType];
   const spread =
     drawCount === 1
@@ -183,8 +190,6 @@ const genericWords = new Set(
     " ",
   ),
 );
-const socialScopeCheck =
-  /boi canh xa hoi|pham vi|quan he xa hoi|dieu kien xa hoi|hoat dong.{0,35}xa hoi/;
 function meaningfulWords(value: string) {
   return evidenceText(value)
     .split(" ")
@@ -222,23 +227,13 @@ function validateGrounding(
     if (evidence.position !== position)
       fail(`position mismatch for ${draw.id}`);
     const context = cardForPrompt(input, index);
-    if (context.scopeStatus === "requires-context") {
-      const connection = evidenceText(evidence.connection);
-      const identifiesScope =
-        /xa hoi|san xuat|quan he lao dong|thiet che|lich su/.test(connection);
-      const statesLimit =
-        /chua|thieu|khong du|can (?:lam ro|kiem tra|xac minh|them|biet|bo sung)|khong the ap dung/.test(
-          connection,
-        );
-      if (!identifiesScope || !statesLimit)
-        fail(`scope ${draw.id}: explicitly state missing social context`);
-      if (
-        !result.checks.some((check) =>
-          socialScopeCheck.test(evidenceText(check)),
-        )
+    if (
+      context.scopeStatus === "requires-context" &&
+      /(?:chung minh|xac nhan|chac chan|cho thay rang).{0,45}(?:nguyen nhan|ban la|ban dang)/.test(
+        evidenceText(evidence.connection),
       )
-        fail(`checks must verify social scope for ${draw.id}`);
-    }
+    )
+      fail(`connection overclaims weak applicability for ${draw.id}`);
     const detail = evidenceText(evidence.userDetail);
     if (
       !meaningfulWords(detail).length ||
@@ -278,6 +273,10 @@ function validateGrounding(
     ...result.actions.map((action) => `${action.title} ${action.description}`),
     result.followUpSuggestion,
   ].join(" ");
+  const internalApplicabilityLanguage =
+    /\b(?:relevance|applicability|scopestatus|scopenotice)\b|pham vi ap dung|xac minh pham vi|chua du boi canh xa hoi|khong du boi canh xa hoi|la (?:bai )?nay.{0,40}(?:kho|khong the|chua the).{0,25}(?:ap dung|lien he)/;
+  if (internalApplicabilityLanguage.test(evidenceText(visible)))
+    fail("internal applicability language must stay backend-only");
   const checkAnchors = new Set(
     input.cards.flatMap((draw) => {
       const card = getCard(draw.id)!;
@@ -412,6 +411,13 @@ export async function analyzeQuestion(
   const quality = inputQualityError(question);
   if (quality)
     return { blocked: true as const, category: "input", message: quality };
+  const clarification = clarificationQuestion(question);
+  if (clarification)
+    return {
+      blocked: true as const,
+      category: "clarification",
+      message: clarification,
+    };
   return getAiRouter().run({
     task: "analysis",
     sessionId: readingSessionId,
@@ -441,6 +447,15 @@ export async function generateReading(
   const quality = inputQualityError(input.followUp ?? input.question);
   if (quality)
     return { blocked: true as const, category: "input", message: quality };
+  const clarification = !input.followUp
+    ? clarificationQuestion(input.question)
+    : null;
+  if (clarification)
+    return {
+      blocked: true as const,
+      category: "clarification",
+      message: clarification,
+    };
   if (input.followUp && outOfScope(input.followUp, input.question))
     return {
       blocked: true as const,

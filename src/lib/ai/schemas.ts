@@ -59,7 +59,7 @@ export const providerReadingSchema = z
               .min(12)
               .max(500)
               .describe(
-                "2 câu ngắn liên hệ câu hỏi, vị trí và chiều của lá. Nếu scopeStatus là requires-context: nói rõ CHƯA có bối cảnh xã hội phù hợp, hỏi dữ kiện còn thiếu; không giả định lá đó đã áp dụng được. Tối đa 65 từ.",
+                "2 câu ngắn liên hệ tự nhiên câu hỏi, vị trí và chiều của lá. Với requires-context, chỉ dùng methodologicalMeaning hoặc phần chắc chắn nhất; không hiện ghi chú phạm vi/relevance. Tối đa 65 từ.",
               ),
           })
           .strict(),

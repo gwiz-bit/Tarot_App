@@ -7,6 +7,7 @@ import {
   type DrawnCard,
   type ReadingRecord,
 } from "./domain";
+import { sanitizeReadingRecord } from "./public-reading";
 
 const KEY = "philo-tarot:history:v1";
 // The date hash predates the new display order. Keep its index-to-identity map
@@ -44,14 +45,16 @@ export function readHistory(): ReadingRecord[] {
     const raw = localStorage.getItem(KEY);
     if (!raw || raw.length > 500000) return [];
     const result = historySchema.safeParse(JSON.parse(raw));
-    return result.success ? result.data.readings : [];
+    return result.success
+      ? result.data.readings.map(sanitizeReadingRecord)
+      : [];
   } catch {
     return [];
   }
 }
 export function saveRecord(record: ReadingRecord) {
   const parsed = recordSchema.parse({
-    ...record,
+    ...sanitizeReadingRecord(record),
     updatedAt: new Date().toISOString(),
   });
   const readings = [parsed, ...readHistory().filter((r) => r.id !== parsed.id)]

@@ -42,8 +42,8 @@ test("the reported three-card fallback has complete short paragraphs and useful 
     ),
   );
   assert.match(result.connections![0].text, /giả định/);
-  assert.match(result.connections![1].text, /chưa|cần/);
-  assert.match(result.connections![2].text, /quan hệ xã hội/);
+  assert.match(result.connections![1].text, /điều kiện|quan sát/);
+  assert.match(result.connections![2].text, /hoạt động|quan hệ/);
   assert.equal(result.actions[1].title, "So sánh cùng tiêu chí");
   assert.match(result.actions[2].detail, /trải nghiệm.*tiêu chí/u);
   assert.doesNotMatch(

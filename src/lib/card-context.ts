@@ -47,6 +47,7 @@ export function selectedCardContext(
       draw.orientation === "upright"
         ? card.uprightFramework
         : card.reversedFramework,
+    methodologicalMeaning: card.methodologicalMeaning,
     checkQuestions: card.checkQuestions,
     academicSourceStatus: card.academicSourceStatus,
     ...(card.avoidForContexts.length

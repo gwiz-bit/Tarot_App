@@ -62,7 +62,7 @@ export function Knowledge({
                     ["Câu hỏi tự suy ngẫm", card.reflection],
                     [
                       "Nội dung liên quan trong môn học",
-                      card.relatedCourseTopic,
+                      `${card.group} · ${card.concept}`,
                     ],
                   ].map(([title, text]) => (
                     <div key={title}>
@@ -71,11 +71,6 @@ export function Knowledge({
                     </div>
                   ))}
                 </dl>
-                <p className="fine-print">
-                  Nội dung học tập đang ở bản biên soạn của dự án, cần đối chiếu
-                  với slide và giáo trình của lớp. Ví dụ đời sống là liên hệ gợi
-                  mở, không phải định nghĩa thay thế.
-                </p>
               </>
             ) : (
               <Dialog.Title>Kiến thức lá bài</Dialog.Title>

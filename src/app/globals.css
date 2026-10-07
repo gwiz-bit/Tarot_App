@@ -917,7 +917,7 @@ h2 {
     display: none;
   }
   .manifesto-label {
-    font-size: 7px;
+    font-size: 11px;
     gap: 10px;
   }
   .manifesto-index {
@@ -1006,7 +1006,7 @@ h2 {
     padding: 26px 0;
   }
   .manifesto-label {
-    font-size: 7px;
+    font-size: 11px;
   }
   .manifesto-label br {
     display: none;

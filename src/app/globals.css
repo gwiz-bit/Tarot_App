@@ -4,6 +4,7 @@
 
 :root {
   font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 16px;
   color: #f1ebdd;
   background: #090a0d;
   font-synthesis: none;
@@ -34,6 +35,8 @@ body {
   margin: 0;
   min-height: 100dvh;
   background: var(--background);
+  font-size: 1rem;
+  line-height: 1.6;
   overscroll-behavior-y: none;
 }
 button,
@@ -332,7 +335,7 @@ em {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-size: 7px;
+  font-size: 11px;
   letter-spacing: 1.7px;
   color: #baa37b;
 }
@@ -347,7 +350,7 @@ em {
   line-height: 1.1;
 }
 .card-english {
-  font-size: 6px;
+  font-size: 10px;
   letter-spacing: 2.3px;
   color: #b09c78;
   margin-top: 9px;
@@ -356,7 +359,7 @@ em {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-size: 5px;
+  font-size: 9px;
   letter-spacing: 1.5px;
   color: #a38b65;
   margin-top: auto;
@@ -364,7 +367,7 @@ em {
 }
 .card-bottom > span:first-child,
 .card-bottom > span:last-child {
-  font-size: 10px;
+  font-size: 12px;
 }
 .front-card {
   z-index: 3;
@@ -960,7 +963,7 @@ h2 {
     display: none;
   }
   .brand {
-    font-size: 9px;
+    font-size: 14px;
     letter-spacing: 1px;
     gap: 8px;
   }
@@ -1023,7 +1026,7 @@ h2 {
     font-size: 37px;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
     letter-spacing: 1.5px;
   }
   .process {
@@ -1053,7 +1056,7 @@ h2 {
   }
   .process-step p {
     max-width: none;
-    font-size: 11px;
+    font-size: 14px;
   }
   .library-section {
     padding: 45px 0;
@@ -1073,7 +1076,7 @@ h2 {
     margin-top: 16px;
   }
   .library-item p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .philosophy {
     padding-top: 55px;
@@ -3024,10 +3027,10 @@ body {
     font-size: 14px;
   }
   .question-meta {
-    font-size: 10px;
+    font-size: 13px;
   }
   .suggestions button {
-    font-size: 11px;
+    font-size: 13px;
   }
   .daily-section {
     grid-template-columns: 1fr;
@@ -3049,7 +3052,7 @@ body {
     font-size: 35px;
   }
   .daily-section p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .knowledge-viewport {
     padding: 12px;
@@ -3063,7 +3066,7 @@ body {
     margin-top: 24px;
   }
   .knowledge-details dd {
-    font-size: 13px;
+    font-size: 15px;
   }
   .draw-page h1 {
     font-size: 40px;
@@ -3091,7 +3094,7 @@ body {
     height: 290px;
   }
   .position-label {
-    font-size: 9px;
+    font-size: 13px;
     min-height: 28px;
     letter-spacing: 0;
   }
@@ -3128,7 +3131,7 @@ body {
     height: 175px;
   }
   .empty-slot small {
-    font-size: 9px;
+    font-size: 13px;
   }
   .deck-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -3150,7 +3153,7 @@ body {
     font-size: 8px;
   }
   .draw-instruction {
-    font-size: 12px;
+    font-size: 14px;
   }
   .result-page {
     padding-top: 40px;
@@ -3204,10 +3207,10 @@ body {
     font-size: 25px;
   }
   .result-card-item .orientation-label {
-    font-size: 9px;
+    font-size: 13px;
   }
   .result-card-item .text-link {
-    font-size: 10px;
+    font-size: 14px;
     gap: 5px;
     line-height: 1.6;
   }
@@ -3234,7 +3237,7 @@ body {
     gap: 10px;
   }
   .result-toolbar .button {
-    font-size: 10px;
+    font-size: 14px;
     padding: 12px;
   }
   .follow-up-section h2 {
@@ -3254,21 +3257,21 @@ body {
     font-size: 23px;
   }
   .full-library-grid .library-number {
-    font-size: 7px;
+    font-size: 11px;
     left: 10px;
     top: 12px;
   }
   .full-library-grid .library-art-label {
-    font-size: 6px;
+    font-size: 10px;
     letter-spacing: 1px;
     left: 10px;
     bottom: 12px;
   }
   .full-library-grid .library-meta {
-    font-size: 8px;
+    font-size: 13px;
   }
   .group-filters button {
-    font-size: 10px;
+    font-size: 13px;
     padding: 9px;
   }
   .history-entry {
@@ -3302,7 +3305,7 @@ body {
     padding: 22px;
   }
   .fine-print {
-    font-size: 10px;
+    font-size: 13px;
   }
   .hero-art {
     overflow: visible;
@@ -3791,7 +3794,7 @@ body {
 @media (max-width: 650px) {
   .reading-steps {
     gap: 22px;
-    font-size: 10px;
+    font-size: 13px;
     margin-bottom: 18px;
   }
   .question-page {
@@ -3809,7 +3812,7 @@ body {
     width: 48px;
   }
   .question-meta {
-    font-size: 10px;
+    font-size: 13px;
   }
   .draw-page h1 {
     font-size: 38px;
@@ -3838,23 +3841,23 @@ body {
   .draw-page .compact-slots .position-label {
     min-height: 36px;
     margin-bottom: 8px;
-    font-size: 10px;
+    font-size: 13px;
   }
   .picked-caption {
     min-height: 66px;
     margin-top: 8px;
   }
   .picked-caption strong {
-    font-size: 11px;
+    font-size: 15px;
   }
   .picked-caption .orientation-label {
-    font-size: 10px;
+    font-size: 13px;
   }
   .draw-page .compact-slots .empty-slot > span {
     font-size: 28px;
   }
   .draw-page .compact-slots .empty-slot > small {
-    font-size: 10px;
+    font-size: 13px;
   }
   .carousel-navigation {
     grid-template-columns: 36px minmax(0, 1fr) 36px;
@@ -3873,7 +3876,7 @@ body {
     height: 36px;
   }
   .carousel-help {
-    font-size: 10px;
+    font-size: 13px;
     gap: 6px;
   }
   .carousel-help svg {
@@ -4191,7 +4194,7 @@ body {
   }
 
   .header .brand {
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 0.6px;
   }
 
@@ -4208,7 +4211,7 @@ body {
   }
 
   .eyebrow {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
     letter-spacing: 1.1px;
   }
@@ -4413,7 +4416,7 @@ body {
   }
 
   .reading-steps li span {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .question-focus {
@@ -4866,7 +4869,7 @@ body {
   }
 
   .footer > span {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.7;
   }
 
@@ -4891,7 +4894,7 @@ body {
   }
 
   .brand {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.7px;
   }
 
@@ -4910,7 +4913,7 @@ body {
 
   .reading-steps {
     gap: 4px;
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .reading-steps li {
@@ -5241,10 +5244,10 @@ body {
     font-size: 32px;
   }
   .reading-pending-status {
-    font-size: 12px;
+    font-size: 14px;
   }
   .reading-preparation .question-capsule {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -5463,7 +5466,7 @@ body {
 }
 
 .daily-card-name-en {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted-foreground);
   letter-spacing: 0.05em;
 }
@@ -5493,7 +5496,7 @@ body {
 }
 
 .advice-text {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.85;
   color: var(--foreground);
   margin: 0;
@@ -5532,7 +5535,7 @@ body {
 
 .reflection-question {
   font-family: var(--font-display), serif;
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
   color: var(--foreground);
   margin: 0 0 8px;

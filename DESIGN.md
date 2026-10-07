@@ -8,7 +8,7 @@ Tối: nền #090a0d, panel #101217/#151820, chữ #f1ebdd, nhấn vàng #c6a567
 
 ## Chữ
 
-Cormorant Garamond cho tiêu đề và thông điệp; Inter cho form, điều hướng và lý thuyết. `next/font` self-host, có subset tiếng Việt. Tiêu đề lớn, nội dung đọc 13–15px trên màn chức năng.
+Cormorant Garamond cho tiêu đề và thông điệp; Inter cho form, điều hướng và lý thuyết. `next/font` self-host, có subset tiếng Việt. Tiêu đề lớn, nội dung đọc 15–17px trên màn chức năng; nhãn phụ, điều hướng và chú thích không nhỏ hơn 12px (chữ in trên mặt lá và artwork co theo khung lá).
 
 ## Layout và component
 
@@ -30,13 +30,13 @@ Carousel mobile chiếm toàn chiều rộng, hai mũi tên 44px nằm dưới b
 
 Chọn phong cách Dễ hiểu / Phản biện / Học thuật ngay dưới ô câu hỏi, dùng nhóm radio ba cột và một dòng giải thích cho lựa chọn hiện tại. Dễ hiểu là mặc định. Lựa chọn đi theo phiên từ trang chủ hoặc trang trải bài, được giữ khi tải lại và áp dụng ngay lần diễn giải đầu cùng các câu hỏi tiếp theo. Chọn radio không gọi API. Trang kết quả chỉ hiển thị phong cách đã chọn, không có nút đổi phong cách để phát sinh yêu cầu diễn giải bổ sung.
 
-Kết quả đọc theo bốn phần: Điều cần nhìn rõ → Soi vào vấn đề → Điều cần kiểm tra → Ba bước có thể thử. Tiêu đề luôn có dạng `01 — Điều cần nhìn rõ`, dùng Inter 18px; chữ đọc 16px và dòng tối đa 70ch; thông điệp dùng Cormorant 27px. Phần soi vào vấn đề là một mạch lập luận liên kết các vị trí; không hiển thị lại từng lá như các mục giáo trình riêng. Dữ liệu từng lá, vị trí và chiều vẫn được kiểm tra ở backend. Ghi chú relevance, scopeStatus và phạm vi áp dụng không xuất hiện trong UI. Không lặp nguyên định nghĩa dưới artwork; kiến thức đầy đủ mở qua nút của lá. Văn bản cũ trong lịch sử được chia theo câu thành đoạn đọc, giữ nguyên nội dung. Câu hỏi tiếp dùng cùng cách trình bày. Hành động không tự đặt thời hạn, số lượng hoặc thước đo khi người dùng chưa cung cấp.
+Kết quả đọc theo bốn phần: Điều cần nhìn rõ → Soi vào vấn đề → Điều cần kiểm tra → Ba bước có thể thử. Tiêu đề luôn có dạng `01 — Điều cần nhìn rõ`, dùng Inter 18px; chữ đọc 17px (16px trên điện thoại) và dòng tối đa 70ch; thông điệp dùng Cormorant 27px. Phần soi vào vấn đề là một mạch lập luận liên kết các vị trí; không hiển thị lại từng lá như các mục giáo trình riêng. Dữ liệu từng lá, vị trí và chiều vẫn được kiểm tra ở backend. Ghi chú relevance, scopeStatus và phạm vi áp dụng không xuất hiện trong UI. Không lặp nguyên định nghĩa dưới artwork; kiến thức đầy đủ mở qua nút của lá. Văn bản cũ trong lịch sử được chia theo câu thành đoạn đọc, giữ nguyên nội dung. Câu hỏi tiếp dùng cùng cách trình bày. Hành động không tự đặt thời hạn, số lượng hoặc thước đo khi người dùng chưa cung cấp.
 
 Kết quả dự phòng có nút “Thử phân tích lại với AI”, giữ nguyên lá, vị trí, chiều và phong cách; thao tác không tạo lần trải mới. Nếu đã chọn một bước thực hành, lần phân tích lại giữ kế hoạch đó. Nội dung dự phòng dùng câu hoàn chỉnh, không cắt theo ngân sách từ rồi thêm dấu ba chấm. Khi hai hướng chưa rõ hoặc lá xã hội thiếu bối cảnh, nói rõ điều còn thiếu; không tự gán A/B hay chọn thay người dùng.
 
 ## Motion
 
-Vùng rút bài ưu tiên artwork và vị trí trải: lá đã chọn và ô chờ có kích thước 144×220px trên desktop, cột 190px, tên bài bên dưới 14px. Điện thoại dùng lá 94×144px (84×128px trên màn hình nhỏ), trải một lá dùng 124×190px. Bộ bài carousel dùng 160×244px trên desktop và 116×182px trên điện thoại. Artwork, viền và typography co cùng khung; chừa chiều cao cho tên dài để không đẩy bộ bài khi lật.
+Vùng rút bài ưu tiên artwork và vị trí trải: lá đã chọn và ô chờ có kích thước 144×220px trên desktop, cột 190px, tên bài bên dưới 16px. Điện thoại dùng lá 94×144px (84×128px trên màn hình nhỏ), trải một lá dùng 124×190px. Bộ bài carousel dùng 160×244px trên desktop và 116×182px trên điện thoại. Artwork, viền và typography co cùng khung; chừa chiều cao cho tên dài để không đẩy bộ bài khi lật.
 
 Motion cho carousel có quán tính/snap, shared-layout từ bộ bài vào slot, CSS 3D flip và result blocks xuất hiện cách nhau 100ms. Lá giữa nâng 12px khi hover; các lá bên cạnh lùi theo perspective/scale. Thiết bị cảm ứng có phản hồi nhấn và không giữ hiệu ứng hover; tắt animation không cần thiết theo reduced motion. GSAP đã cài để dành cho sequence đặc biệt khi nhóm chốt choreography, không cần chạy đồng thời với flip hiện tại.
 

@@ -22,7 +22,7 @@ export function Library() {
   );
   return (
     <main className="container library-page">
-      <div className="eyebrow">22 LÁ BÀI · 44 HƯỚNG SUY NGẪM</div>
+      <div className="eyebrow">22 lá bài · 44 hướng suy ngẫm</div>
       <h1>
         Mỗi lá bài,
         <br />

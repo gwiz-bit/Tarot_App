@@ -11,7 +11,13 @@ import {
   type ReadingStyle,
 } from "@/lib/domain";
 import { analyze } from "@/lib/client-api";
-import { getDailyCard, getRandomCard, outcomes, readHistory, saveRecord } from "@/lib/storage";
+import {
+  getDailyCard,
+  getRandomCard,
+  outcomes,
+  readHistory,
+  saveRecord,
+} from "@/lib/storage";
 import {
   createReadingSession,
   writeReadingSession,
@@ -51,7 +57,7 @@ export function ReturningAction() {
   }
   return (
     <section className="returning-action container">
-      <div className="eyebrow">QUAY LẠI VỚI THỰC TIỄN</div>
+      <div className="eyebrow">Quay lại với thực tiễn</div>
       <h2>
         Lần trước bạn đã chọn
         <br />
@@ -128,7 +134,7 @@ export function HomeQuestion() {
   return (
     <section className="home-question container" id="question-section">
       <div>
-        <div className="eyebrow">HIỂU HIỆN TẠI ĐỂ TẠO RA TƯƠNG LAI</div>
+        <div className="eyebrow">Hiểu hiện tại để tạo ra tương lai</div>
         <h2>
           Mang điều băn khoăn
           <br />
@@ -191,7 +197,7 @@ export function DailyCard() {
         )}
       </div>
       <div>
-        <div className="eyebrow">LÁ TRIẾT HỌC HÔM NAY</div>
+        <div className="eyebrow">Lá triết học hôm nay</div>
         <h2>
           {card ? (
             card.concept
@@ -215,11 +221,24 @@ export function DailyCard() {
                 ? "Lá xuôi · Góc nhìn có thể phát huy"
                 : "Lá ngược · Điểm mù cần kiểm tra"}
             </span>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "16px" }}>
-              <button className="button button-outline" onClick={() => setDraw(getRandomCard())}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "12px",
+                marginTop: "16px",
+              }}
+            >
+              <button
+                className="button button-outline"
+                onClick={() => setDraw(getRandomCard())}
+              >
                 ✦ Rút lá ngẫu nhiên khác
               </button>
-              <button className="button button-outline" onClick={() => setShow(true)}>
+              <button
+                className="button button-outline"
+                onClick={() => setShow(true)}
+              >
                 Xem kiến thức lá bài ↗
               </button>
               <Link className="button button-primary" href="/daily">
@@ -228,11 +247,24 @@ export function DailyCard() {
             </div>
           </>
         ) : (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "16px" }}>
-            <button className="button button-primary" onClick={() => setDraw(getDailyCard())}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              marginTop: "16px",
+            }}
+          >
+            <button
+              className="button button-primary"
+              onClick={() => setDraw(getDailyCard())}
+            >
               ✧ Mở lá hôm nay
             </button>
-            <button className="button button-outline" onClick={() => setDraw(getRandomCard())}>
+            <button
+              className="button button-outline"
+              onClick={() => setDraw(getRandomCard())}
+            >
               ✦ Rút ngẫu nhiên một lá
             </button>
             <Link className="button button-outline" href="/daily">

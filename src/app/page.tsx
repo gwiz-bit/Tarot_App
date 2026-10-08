@@ -65,21 +65,16 @@ export default function Home() {
       <main>
         <section className="hero container" id="home">
           <div className="hero-copy">
-            <div className="eyebrow">
-              <span className="tiny-line" /> TRIẾT HỌC, QUA MỘT GÓC NHÌN KHÁC
-            </div>
+            <div className="eyebrow">Triết học, qua một góc nhìn khác</div>
             <h1>
               Một câu hỏi.
               <br />
-              Những <em>góc nhìn</em>
-              <br />
-              mới.
+              Những <em>góc nhìn</em> mới.
             </h1>
             <p className="hero-description">
-              Không dự đoán tương lai. Không định đoạt số phận.
-              <br /> Một lá bài, một góc nhìn triết học — để thấu hiểu
-              <br className="desktop-break" /> vấn đề và tìm hướng hành động của
-              riêng bạn.
+              Không dự đoán tương lai. Không định đoạt số phận. Một lá bài, một
+              góc nhìn triết học — để thấu hiểu vấn đề và tìm hướng hành động
+              của riêng bạn.
             </p>
             <div className="hero-buttons">
               <button className="button primary" onClick={openDraw}>
@@ -95,11 +90,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-art">
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <span className="art-coordinate coordinate-top">
-              GÓC NHÌN 01 / 22
-            </span>
+            <div className="hero-moon" aria-hidden="true" />
             <TarotCard
               type={1}
               className="back-card left-card"
@@ -121,37 +112,15 @@ export default function Home() {
                 setKnowledge(previewCards[0]);
               }}
             />
-            <div className="art-caption">
-              <span className="caption-line" /> ĐỐI LẬP. THỐNG NHẤT. CHUYỂN HÓA.
-            </div>
-            <span className="art-coordinate coordinate-bottom">
-              MỖI LÁ BÀI LÀ MỘT LĂNG KÍNH
-            </span>
+            <div className="art-caption">Đối lập · Thống nhất · Chuyển hóa</div>
           </div>
         </section>
         <ReturningAction />
         <HomeQuestion />
-        <DailyCard />
-        <section className="manifesto container" id="about">
-          <div className="manifesto-label">
-            <span className="outlined-star">✧</span>
-            <span>
-              KHÔNG PHẢI LỜI TIÊN TRI.
-              <br />
-              LÀ MỘT LỜI GỢI MỞ.
-            </span>
-          </div>
-          <blockquote>
-            “Lá bài không quyết định tương lai.
-            <br />
-            Nó mở ra một góc nhìn để <em>hiểu và hành động.</em>”
-          </blockquote>
-          <span className="manifesto-index">01 — 03</span>
-        </section>
         <section className="process container" id="how-it-works">
           <div className="section-heading">
             <div>
-              <div className="eyebrow">TỪ SUY NGẪM ĐẾN THỰC TIỄN</div>
+              <div className="eyebrow">Từ suy ngẫm đến thực tiễn</div>
               <h2>
                 Một khoảng dừng. <em>Một bước tiến.</em>
               </h2>
@@ -197,12 +166,13 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <DailyCard />
         <section className="library-section" id="library">
           <div className="container">
             <div className="section-heading">
               <div>
                 <div className="eyebrow">
-                  22 LÁ BÀI. 22 LĂNG KÍNH TRIẾT HỌC.
+                  22 lá bài. 22 lăng kính triết học.
                 </div>
                 <h2>
                   Điều gì nằm sau <em>một lá bài?</em>
@@ -239,8 +209,24 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="manifesto container" id="about">
+          <div className="manifesto-label">
+            <span className="outlined-star">✧</span>
+            <span>
+              Không phải lời tiên tri.
+              <br />
+              Là một lời gợi mở.
+            </span>
+          </div>
+          <blockquote>
+            “Lá bài không quyết định tương lai.
+            <br />
+            Nó mở ra một góc nhìn để <em>hiểu và hành động.</em>”
+          </blockquote>
+          <span className="manifesto-index">01 — 03</span>
+        </section>
         <section className="philosophy container" id="philosophy">
-          <span className="eyebrow">TRIẾT HỌC KHÔNG Ở ĐÂU XA</span>
+          <div className="eyebrow">Triết học không ở đâu xa</div>
           <h2>
             Từ những trang sách,
             <br />
@@ -272,7 +258,7 @@ export default function Home() {
         >
           <div className="section-heading">
             <div>
-              <div className="eyebrow">NHỮNG CON NGƯỜI. NHỮNG TƯ TƯỞNG.</div>
+              <div className="eyebrow">Những con người. Những tư tưởng.</div>
               <h2 id="thinkers-title">
                 Đằng sau một <em>hệ tư tưởng.</em>
               </h2>

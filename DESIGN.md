@@ -4,15 +4,15 @@ Nguồn: `Design Tarot Biện Chứng Website.zip` do người dùng cung cấp.
 
 ## Màu
 
-Tối: nền #090a0d, panel #101217/#151820, chữ #f1ebdd, nhấn vàng #c6a567. Artwork dùng đỏ trầm #a85f68 và xanh xám #748da6. Sáng dùng nền #f7f8fa và nhấn #4f6175. Lá bài giữ nền tối để artwork nhất quán.
+Tối (chàm đêm): nền #070a1a, panel #0c1124/#131a33, chữ #e9ecf7, nhấn bạc trăng #b9c4f2; nền có lớp sao tĩnh rất mờ. Vàng #c6a567 (`--card-gold`) chỉ dùng trên mặt lá, lưng lá và artwork, để lá bài là điểm ấm duy nhất. Artwork dùng đỏ trầm #a85f68 và xanh xám #748da6. Sáng dùng nền giấy lạnh #f4f6fc, chữ #1c2140 và nhấn chàm #3d4a8f. Lá bài giữ nền tối để artwork nhất quán.
 
 ## Chữ
 
-Cormorant Garamond cho tiêu đề và thông điệp; Inter cho form, điều hướng và lý thuyết. `next/font` self-host, có subset tiếng Việt. Tiêu đề lớn, nội dung đọc 15–17px trên màn chức năng; nhãn phụ, điều hướng và chú thích không nhỏ hơn 12px (chữ in trên mặt lá và artwork co theo khung lá).
+Fraunces (weight 300, có nghiêng) cho tiêu đề và thông điệp; Be Vietnam Pro cho form, điều hướng và lý thuyết; Cormorant Garamond (`--font-card`) chỉ còn trên mặt lá bài. Nhãn phía trên tiêu đề viết thường 14px, có dấu ✦ đứng trước, không in hoa giãn chữ. `next/font` self-host, có subset tiếng Việt. Tiêu đề lớn, nội dung đọc 15–17px trên màn chức năng; nhãn phụ, điều hướng và chú thích không nhỏ hơn 12px (chữ in trên mặt lá và artwork co theo khung lá).
 
 ## Layout và component
 
-Container tối đa 1288px. Trang kết quả đặt lá bên trái, 3 khối diễn giải bên phải; trên điện thoại lá nằm trước nội dung. Library có 4/3/2 cột. Viền mảnh, góc 3–6px; không biến sản phẩm thành dashboard. Kiến thức dài nằm trong Base UI Dialog.
+Container tối đa 1288px. Hero trang chủ căn giữa: nhãn, tiêu đề, mô tả và nút ở trên; ba lá xòe ngang phía dưới trên một vầng trăng mờ. Thứ tự trang chủ: hero → ô đặt câu hỏi → cách hoạt động → lá hôm nay → thư viện → trích dẫn → triết học → nhà tư tưởng. Nút bo góc 12px, nút chính nền bạc chữ chàm. Trang kết quả đặt lá bên trái, 3 khối diễn giải bên phải; trên điện thoại lá nằm trước nội dung. Library có 4/3/2 cột. Viền mảnh, góc 3–6px; không biến sản phẩm thành dashboard. Kiến thức dài nằm trong Base UI Dialog.
 
 Header là thanh nổi cố định phía trên trên toàn bộ website, bo góc 20px trên desktop và 16px trên điện thoại, nền đặc, viền tương phản thấp và bóng nhẹ theo chế độ sáng/tối. Thanh cao 72px trên desktop, 68px trên tablet và 64px trên điện thoại; khoảng cách với mép màn hình tính safe area. Layout chừa chỗ cho header, anchor có khoảng cuộn tương ứng. Menu điện thoại nổi ngay dưới thanh, dùng cùng độ bo góc với header và cuộn riêng khi màn hình thấp. Dialog phủ trên cả header và menu.
 
@@ -20,7 +20,7 @@ Mục điều hướng đang chọn có nền màu nhấn nhạt, bo góc 10px, 
 
 ## Responsive
 
-Kiểm soát bố cục theo nội dung: hero xếp dọc từ 900px, các màn chức năng thu gọn từ 650px, bổ sung kích thước cho điện thoại 320–360px và màn hình ngang thấp. Library giữ 4/3/2 cột; artwork co theo khung. Kết quả nhiều lá xếp ngang trên tablet/desktop, cuộn và snap trong vùng riêng trên điện thoại. Thẻ giữ tỷ lệ khi co để không đẩy tràn cột.
+Kiểm soát bố cục theo nội dung: hero luôn xếp dọc và căn giữa, ba lá thu nhỏ dần từ 900px, các màn chức năng thu gọn từ 650px, bổ sung kích thước cho điện thoại 320–360px và màn hình ngang thấp. Library giữ 4/3/2 cột; artwork co theo khung. Kết quả nhiều lá xếp ngang trên tablet/desktop, cuộn và snap trong vùng riêng trên điện thoại. Thẻ giữ tỷ lệ khi co để không đẩy tràn cột.
 
 Form dùng chữ 16px; nút chính trên mobile cao 48px, nút biểu tượng và điều hướng có vùng chạm tối thiểu 44px. Container chừa 16px hai bên (14px ở màn hình 320–360px), tính safe area. Home thu gọn gợi ý câu hỏi sau disclosure; tiến trình trải bài dùng ba cột với gạch dưới bước hiện tại. Bộ lọc thư viện cuộn ngang trong vùng riêng. Footer bám sau nội dung bằng layout flex, không dùng chiều cao trang cố định. Không chặn tràn ngang toàn bộ trang để che lỗi layout; chỉ cắt phần orbit trang trí trong hero.
 

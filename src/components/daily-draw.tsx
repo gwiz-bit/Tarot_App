@@ -175,7 +175,7 @@ ${currentCard.reflection}`;
     <div className="daily-draw-page container">
       <div className="daily-draw-header">
         <span className="eyebrow">
-          <Sparkles className="icon-inline" size={14} /> CHIÊM NGHIỆM HẰNG NGÀY VỚI AI
+          <Sparkles className="icon-inline" size={14} /> Chiêm nghiệm hằng ngày với AI
         </span>
         <h1>Rút 1 lá nhận lời khuyên trong ngày</h1>
         <p className="lead">

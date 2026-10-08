@@ -104,15 +104,15 @@ export async function createShareImage(
   const displayFont =
     fonts.getPropertyValue("--font-display").trim() || "serif";
   const bodyFont = fonts.getPropertyValue("--font-body").trim() || "sans-serif";
-  ctx.fillStyle = "#101217";
+  ctx.fillStyle = "#0c1124";
   ctx.fillRect(0, 0, 1080, 1350);
-  ctx.strokeStyle = "#c6a567";
+  ctx.strokeStyle = "#b9c4f2";
   ctx.lineWidth = 1;
   ctx.strokeRect(48, 48, 984, 1254);
-  ctx.strokeStyle = "#c6a56740";
+  ctx.strokeStyle = "#b9c4f240";
   ctx.strokeRect(63, 63, 954, 1224);
   ctx.textAlign = "center";
-  ctx.fillStyle = "#c6a567";
+  ctx.fillStyle = "#b9c4f2";
   ctx.font = `20px ${bodyFont}`;
   ctx.fillText("T A R O T   B I Ệ N   C H Ứ N G", 540, 120);
   ctx.font = `26px ${bodyFont}`;
@@ -131,16 +131,16 @@ export async function createShareImage(
     ctx.drawImage(img, -250, -260, 500, 520);
   } else ctx.drawImage(img, 290, 245, 500, 520);
   ctx.restore();
-  ctx.fillStyle = "#f1ebdd";
-  ctx.font = `42px ${displayFont}`;
+  ctx.fillStyle = "#e9ecf7";
+  ctx.font = `300 36px ${displayFont}`;
   wrap(ctx, card.name.toUpperCase(), 540, 838, 830, 52);
-  ctx.fillStyle = "#c6a567";
+  ctx.fillStyle = "#b9c4f2";
   ctx.font = `28px ${bodyFont}`;
   wrap(ctx, card.concept, 540, 907, 830, 40);
-  ctx.fillStyle = "#d9d2c5";
-  ctx.font = `italic 38px ${displayFont}`;
+  ctx.fillStyle = "#d5dcfa";
+  ctx.font = `italic 300 32px ${displayFont}`;
   wrap(ctx, `“${shareMessage(card, orientation)}”`, 540, 1020, 820, 51);
-  ctx.fillStyle = "#9497a1";
+  ctx.fillStyle = "#949cbd";
   ctx.font = `17px ${bodyFont}`;
   ctx.fillText("HIỂU HIỆN TẠI ĐỂ TẠO RA TƯƠNG LAI", 540, 1230);
   const blob = await new Promise<Blob>((resolve, reject) =>

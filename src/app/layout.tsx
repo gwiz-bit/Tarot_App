@@ -2,19 +2,26 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { SiteShell } from "@/components/site-shell";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Be_Vietnam_Pro, Cormorant_Garamond, Fraunces } from "next/font/google";
 
-const display = Cormorant_Garamond({
+const display = Fraunces({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-display",
 });
-const body = Inter({
+const body = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-body",
+});
+// Card faces keep the engraved serif that the artwork was drawn for.
+const cardFace = Cormorant_Garamond({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-card",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +44,7 @@ export default function RootLayout({
     <html
       lang="vi"
       data-scroll-behavior="smooth"
-      className={`${display.variable} ${body.variable}`}
+      className={`${display.variable} ${body.variable} ${cardFace.variable}`}
     >
       <body>
         <Providers>

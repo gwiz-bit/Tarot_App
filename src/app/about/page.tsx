@@ -4,7 +4,7 @@ export const metadata: Metadata = { title: "Về dự án — Tarot Biện Chứ
 export default function AboutPage() {
   return (
     <main className="container about-page">
-      <div className="eyebrow">MỘT SẢN PHẨM SÁNG TẠO CHO MLN111</div>
+      <div className="eyebrow">Một sản phẩm sáng tạo cho MLN111</div>
       <h1>
         Lá bài gợi mở.
         <br />

@@ -76,7 +76,7 @@ export function History() {
     );
   return (
     <main className="container history-page">
-      <div className="eyebrow">NHẬN THỨC → HÀNH ĐỘNG → KIỂM NGHIỆM</div>
+      <div className="eyebrow">Nhận thức → Hành động → Kiểm nghiệm</div>
       <h1>
         Những góc nhìn
         <br />
